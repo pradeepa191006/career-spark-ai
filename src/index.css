@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-border: rgb(var(--border));
+  --color-background: rgb(var(--background));
+  --color-foreground: rgb(var(--foreground));
+  
+  --color-primary: rgb(var(--primary));
+  --color-primary-foreground: rgb(var(--primary-foreground));
+  
+  --color-secondary: rgb(var(--secondary));
+  --color-secondary-foreground: rgb(var(--secondary-foreground));
+  
+  --color-accent: rgb(var(--accent));
+  --color-accent-foreground: rgb(var(--accent-foreground));
+  
+  --color-card: rgb(var(--card));
+  --color-card-foreground: rgb(var(--card-foreground));
+  
+  --color-muted: rgb(var(--muted));
+  --color-muted-foreground: rgb(var(--muted-foreground));
+  
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+}
+
+@layer base {
+  :root {
+    --background: 248, 250, 252;      /* Slate-50 */
+    --foreground: 15, 23, 42;         /* Slate-900 */
+    
+    --primary: 99, 102, 241;          /* Indigo-500 */
+    --primary-foreground: 255, 255, 255;
+    
+    --secondary: 241, 245, 249;        /* Slate-100 */
+    --secondary-foreground: 15, 23, 42;
+    
+    --accent: 124, 58, 237;           /* Violet-600 */
+    --accent-foreground: 255, 255, 255;
+    
+    --card: 255, 255, 255;
+    --card-foreground: 15, 23, 42;
+    
+    --muted: 100, 116, 139;           /* Slate-500 */
+    --muted-foreground: 71, 85, 105;  /* Slate-600 */
+    
+    --border: 226, 232, 240;          /* Slate-200 */
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 15, 23, 42;         /* Slate-900 */
+    --foreground: 248, 250, 252;       /* Slate-50 */
+    
+    --primary: 129, 140, 248;         /* Indigo-400 */
+    --primary-foreground: 15, 23, 42;
+    
+    --secondary: 30, 41, 59;          /* Slate-800 */
+    --secondary-foreground: 248, 250, 252;
+    
+    --accent: 167, 139, 250;          /* Violet-400 */
+    --accent-foreground: 15, 23, 42;
+    
+    --card: 30, 41, 59;               /* Slate-800 */
+    --card-foreground: 248, 250, 252;
+    
+    --muted: 148, 163, 184;           /* Slate-400 */
+    --muted-foreground: 203, 213, 225;/* Slate-300 */
+    
+    --border: 51, 65, 85;             /* Slate-700 */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border transition-colors duration-200;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased font-sans overflow-x-hidden;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.05) 0px, transparent 50%);
+  }
+
+  .dark body {
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.1) 0px, transparent 50%);
+  }
+}
+
+/* Glassmorphism custom components */
+.glass-panel {
+  @apply bg-white/90 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/60 text-slate-800 dark:text-slate-100;
+}
+
+.glass-card {
+  @apply bg-white dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-slate-800/80 shadow-lg shadow-slate-200/50 dark:shadow-black/40 text-slate-800 dark:text-slate-100;
+}
+
+.glass-input {
+  @apply bg-slate-50 dark:bg-slate-950/60 border border-slate-300 dark:border-slate-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500;
+}
+
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-700 rounded-full hover:bg-slate-400 dark:hover:bg-slate-600;
+}
+
+/* A4 Page Styling for Resume Builder */
+.a4-page {
+  width: 210mm;
+  height: 297mm;
+  padding: 20mm;
+  margin: 0 auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  background: white;
+  color: #1e293b;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.dark .a4-page {
+  /* Keeps the export preview white to match dynamic printable standards */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+@media print {
+  body {
+    background: none;
+    -webkit-print-color-adjust: exact;
+  }
+  .a4-page {
+    box-shadow: none;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
