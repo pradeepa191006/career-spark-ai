@@ -72,6 +72,7 @@ export const ResumeBuilder: React.FC = () => {
 
   const [deleteTarget, setDeleteTarget] = useState<{ type: 'experience' | 'project' | 'education' | 'version'; id: string } | null>(null);
   const [lastSaved, setLastSaved] = useState<string>('');
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState<boolean>(false);
   
   // Layout states
   const [fontSize, setFontSize] = useState<number>(12); // px
@@ -256,10 +257,20 @@ export const ResumeBuilder: React.FC = () => {
   };
 
   const handlePDFDownload = async () => {
+    if (isGeneratingPdf) return;
+    setIsGeneratingPdf(true);
     try {
-      await exportToPDF('resume-preview-canvas', `${resume.personal.fullName.replace(/\s+/g, '_')}_resume.pdf`);
+      const cleanName = resume.personal.fullName.trim()
+        ? resume.personal.fullName.trim().replace(/\s+/g, '_')
+        : 'Resume';
+      const filename = `${cleanName}_Resume.pdf`;
+      await exportToPDF('resume-preview-canvas', filename);
+      showToast('Resume PDF downloaded successfully!', 'success');
     } catch (err) {
-      console.error(err);
+      console.error('Failed to generate PDF:', err);
+      showToast('Failed to generate PDF. Please try again.', 'error');
+    } finally {
+      setIsGeneratingPdf(false);
     }
   };
 
@@ -331,10 +342,10 @@ export const ResumeBuilder: React.FC = () => {
   return (
     <div className="space-y-8">
       {/* Top action header */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b dark:border-slate-800 pb-4">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-200 dark:border-[#143D32] pb-4">
         <div>
-          <h2 className="text-xl font-bold text-slate-850 dark:text-slate-100 flex items-center gap-2">
-            <FileText className="w-5 h-5 text-indigo-500" />
+          <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+            <FileText className="w-5 h-5 text-emerald-500" />
             <span>AI Resume Builder</span>
           </h2>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -343,9 +354,9 @@ export const ResumeBuilder: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-2.5 shrink-0 flex-wrap">
-          <span className="text-[10px] text-slate-450 font-semibold uppercase flex items-center gap-1.5 bg-slate-900/40 px-2 py-1.5 rounded border border-slate-850">
+          <span className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold uppercase flex items-center gap-1.5 bg-slate-100 dark:bg-[#071C17] px-2 py-1.5 rounded border border-slate-200 dark:border-[#143D32]">
             {saveStatus === 'saved' && <CheckCircle className="w-3.5 h-3.5 text-emerald-500" />}
-            {saveStatus === 'saving' && <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-ping" />}
+            {saveStatus === 'saving' && <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />}
             {saveStatus === 'saving' ? 'Auto-saving...' : `Saved Successfully (Last saved: ${lastSaved || 'Synced'})`}
           </span>
 
@@ -360,7 +371,7 @@ export const ResumeBuilder: React.FC = () => {
           <button
             onClick={() => resumeFileInputRef.current?.click()}
             disabled={isImporting}
-            className="flex items-center gap-1.5 border border-indigo-500/30 hover:bg-indigo-500/10 text-indigo-400 font-semibold py-2 px-3 rounded-xl text-xs transition-all cursor-pointer"
+            className="flex items-center gap-1.5 border border-emerald-500/30 hover:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-semibold py-2 px-3 rounded-xl text-xs transition-all cursor-pointer"
           >
             {isImporting ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Upload className="w-4 h-4" />}
             <span>{isImporting ? 'Parsing...' : 'Import Resume (PDF/DOCX)'}</span>
@@ -368,36 +379,46 @@ export const ResumeBuilder: React.FC = () => {
 
           <button
             onClick={handleProfileSync}
-            className="flex items-center gap-1.5 border border-slate-800 hover:bg-slate-900 text-indigo-400 font-semibold py-2 px-3 rounded-xl text-xs transition-all"
+            className="flex items-center gap-1.5 border border-slate-300 dark:border-[#143D32] hover:bg-slate-100 dark:hover:bg-[#0B2A22] text-slate-700 dark:text-slate-300 font-semibold py-2 px-3 rounded-xl text-xs transition-all cursor-pointer"
           >
-            <Save className="w-4 h-4" />
+            <Save className="w-4 h-4 text-emerald-500" />
             <span>Sync to Profile</span>
           </button>
 
           <button
             onClick={handleWordDownload}
-            className="flex items-center gap-1.5 border border-slate-800 hover:bg-slate-900 text-indigo-400 font-semibold py-2 px-3 rounded-xl text-xs transition-all"
+            className="flex items-center gap-1.5 border border-slate-300 dark:border-[#143D32] hover:bg-slate-100 dark:hover:bg-[#0B2A22] text-teal-600 dark:text-teal-400 font-semibold py-2 px-3 rounded-xl text-xs transition-all cursor-pointer"
           >
-            <FileText className="w-4 h-4 text-indigo-400" />
+            <FileText className="w-4 h-4 text-teal-500" />
             <span>DOCX</span>
           </button>
 
           <button
             onClick={handlePDFDownload}
-            className="flex items-center gap-1.5 bg-indigo-650 hover:bg-indigo-750 text-white font-semibold py-2 px-4.5 rounded-xl text-xs transition-all shadow-lg"
+            disabled={isGeneratingPdf}
+            className="flex items-center gap-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-2 px-4.5 rounded-xl text-xs transition-all shadow-lg shadow-emerald-950/20 cursor-pointer"
           >
-            <Download className="w-4 h-4" />
-            <span>Download PDF</span>
+            {isGeneratingPdf ? (
+              <>
+                <RefreshCw className="w-4 h-4 animate-spin" />
+                <span>Generating PDF...</span>
+              </>
+            ) : (
+              <>
+                <Download className="w-4 h-4" />
+                <span>Download PDF</span>
+              </>
+            )}
           </button>
         </div>
       </div>
 
       {isOverflowing && (
-        <div className="flex items-start gap-2.5 p-3.5 rounded-xl bg-red-950/40 border border-red-500/20 text-red-400 text-xs animate-pulse">
+        <div className="flex items-start gap-2.5 p-3.5 rounded-xl bg-orange-950/40 border border-orange-500/30 text-orange-400 text-xs animate-pulse">
           <AlertTriangle className="w-4.5 h-4.5 shrink-0 mt-0.5" />
           <div className="space-y-1">
             <p className="font-bold">A4 Single Page Height Overflow Warning</p>
-            <p className="text-[11px] text-red-300 leading-normal">
+            <p className="text-[11px] text-orange-300 leading-normal">
               Your resume height exceeds standard A4 paper boundaries. Spacers may push sections onto Page 2. 
               Reduce font size, section padding, or trim bullet details inside the "Formatting" panel.
             </p>
@@ -410,35 +431,35 @@ export const ResumeBuilder: React.FC = () => {
         {/* Editor controls: 5 cols */}
         <div className="xl:col-span-5 space-y-6">
           {/* Tabs */}
-          <div className="flex flex-wrap bg-slate-900/60 border border-slate-850 p-1 rounded-xl gap-0.5">
+          <div className="flex flex-wrap bg-slate-100 dark:bg-[#071C17] border border-slate-200 dark:border-[#143D32] p-1 rounded-xl gap-0.5">
             <button
               onClick={() => setActiveTab('content')}
-              className={`flex-1 py-1.5 px-2 text-[11px] font-semibold rounded-lg transition-all ${
-                activeTab === 'content' ? 'bg-indigo-650 text-white shadow' : 'text-slate-400 hover:text-slate-200'
+              className={`flex-1 py-1.5 px-2 text-[11px] font-semibold rounded-lg transition-all cursor-pointer ${
+                activeTab === 'content' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
             >
               Data
             </button>
             <button
               onClick={() => setActiveTab('templates')}
-              className={`flex-1 py-1.5 px-2 text-[11px] font-semibold rounded-lg transition-all ${
-                activeTab === 'templates' ? 'bg-indigo-650 text-white shadow' : 'text-slate-400 hover:text-slate-200'
+              className={`flex-1 py-1.5 px-2 text-[11px] font-semibold rounded-lg transition-all cursor-pointer ${
+                activeTab === 'templates' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
             >
               Templates
             </button>
             <button
               onClick={() => setActiveTab('format')}
-              className={`flex-1 py-1.5 px-2 text-[11px] font-semibold rounded-lg transition-all ${
-                activeTab === 'format' ? 'bg-indigo-650 text-white shadow' : 'text-slate-400 hover:text-slate-200'
+              className={`flex-1 py-1.5 px-2 text-[11px] font-semibold rounded-lg transition-all cursor-pointer ${
+                activeTab === 'format' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
             >
               Margins
             </button>
             <button
               onClick={() => setActiveTab('assistant')}
-              className={`flex-1 py-1.5 px-2 text-[11px] font-semibold rounded-lg transition-all flex items-center justify-center gap-1 ${
-                activeTab === 'assistant' ? 'bg-indigo-650 text-white shadow' : 'text-slate-400 hover:text-slate-200'
+              className={`flex-1 py-1.5 px-2 text-[11px] font-semibold rounded-lg transition-all flex items-center justify-center gap-1 cursor-pointer ${
+                activeTab === 'assistant' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
             >
               <Sparkles className="w-3.5 h-3.5" />
@@ -446,8 +467,8 @@ export const ResumeBuilder: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab('history')}
-              className={`flex-1 py-1.5 px-2 text-[11px] font-semibold rounded-lg transition-all flex items-center justify-center gap-1 ${
-                activeTab === 'history' ? 'bg-indigo-650 text-white shadow' : 'text-slate-400 hover:text-slate-200'
+              className={`flex-1 py-1.5 px-2 text-[11px] font-semibold rounded-lg transition-all flex items-center justify-center gap-1 cursor-pointer ${
+                activeTab === 'history' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
             >
               <History className="w-3.5 h-3.5" />
@@ -492,7 +513,7 @@ export const ResumeBuilder: React.FC = () => {
                         id="showPhoto"
                         checked={resume.showPhoto}
                         onChange={(e) => setResume(prev => ({ ...prev, showPhoto: e.target.checked }))}
-                        className="rounded accent-indigo-500"
+                        className="rounded accent-emerald-500"
                       />
                       <label htmlFor="showPhoto" className="text-slate-400">Display Passport Photo on Resume</label>
                     </div>
@@ -593,9 +614,9 @@ export const ResumeBuilder: React.FC = () => {
 
               {/* Education section */}
               <div className="space-y-4">
-                <div className="flex justify-between items-center border-b dark:border-slate-800 pb-2">
-                  <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Education</h4>
-                  <button onClick={addEducation} className="text-[10px] text-indigo-400 flex items-center gap-0.5"><Plus className="w-3.5 h-3.5" /> Add</button>
+                <div className="flex justify-between items-center border-b border-slate-200 dark:border-[#143D32] pb-2">
+                  <h4 className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Education</h4>
+                  <button onClick={addEducation} className="text-[10px] text-emerald-500 hover:text-emerald-400 font-semibold flex items-center gap-0.5"><Plus className="w-3.5 h-3.5" /> Add</button>
                 </div>
 
                 {resume.education.map((edu) => (
@@ -693,9 +714,9 @@ export const ResumeBuilder: React.FC = () => {
 
               {/* Experience list section */}
               <div className="space-y-4">
-                <div className="flex justify-between items-center border-b dark:border-slate-800 pb-2">
-                  <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Experience</h4>
-                  <button onClick={addExperience} className="text-[10px] text-indigo-400 flex items-center gap-0.5"><Plus className="w-3.5 h-3.5" /> Add</button>
+                <div className="flex justify-between items-center border-b border-slate-200 dark:border-[#143D32] pb-2">
+                  <h4 className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Experience</h4>
+                  <button onClick={addExperience} className="text-[10px] text-emerald-500 hover:text-emerald-400 font-semibold flex items-center gap-0.5"><Plus className="w-3.5 h-3.5" /> Add</button>
                 </div>
 
                 {resume.experience.map((exp) => (
@@ -793,10 +814,10 @@ export const ResumeBuilder: React.FC = () => {
               </div>
 
               {/* Projects section */}
-              <div className="space-y-4 pt-4 border-t dark:border-slate-850">
-                <div className="flex justify-between items-center border-b dark:border-slate-800 pb-2">
-                  <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Projects</h4>
-                  <button onClick={addProject} className="text-[10px] text-indigo-400 flex items-center gap-0.5"><Plus className="w-3.5 h-3.5" /> Add</button>
+              <div className="space-y-4 pt-4 border-t border-slate-200 dark:border-[#143D32]">
+                <div className="flex justify-between items-center border-b border-slate-200 dark:border-[#143D32] pb-2">
+                  <h4 className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Projects</h4>
+                  <button onClick={addProject} className="text-[10px] text-emerald-500 hover:text-emerald-400 font-semibold flex items-center gap-0.5"><Plus className="w-3.5 h-3.5" /> Add</button>
                 </div>
 
                 {resume.projects.map((proj) => (
@@ -898,12 +919,12 @@ export const ResumeBuilder: React.FC = () => {
                     onClick={() => setResume(prev => ({ ...prev, template: tpl.id as any }))}
                     className={`w-full text-left p-4 rounded-xl border transition-all ${
                       resume.template === tpl.id 
-                        ? 'border-indigo-500 bg-indigo-500/5' 
-                        : 'border-slate-855 hover:border-slate-700 bg-transparent'
+                        ? 'border-emerald-500 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400' 
+                        : 'border-slate-200 dark:border-[#143D32] hover:border-emerald-500/50 bg-transparent'
                     }`}
                   >
-                    <p className="text-xs font-bold text-slate-200">{tpl.name}</p>
-                    <p className="text-[10px] text-slate-450 mt-1">{tpl.desc}</p>
+                    <p className="text-xs font-bold text-slate-800 dark:text-slate-200">{tpl.name}</p>
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-1">{tpl.desc}</p>
                   </button>
                 ))}
               </div>
@@ -913,13 +934,13 @@ export const ResumeBuilder: React.FC = () => {
           {/* TAB 3: Formatting & Margins */}
           {activeTab === 'format' && (
             <div className="glass-card p-6 rounded-2xl space-y-6">
-              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-2">A4 Page Formatting Controls</h3>
+              <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-2">A4 Page Formatting Controls</h3>
 
               <div className="space-y-4">
                 <div>
                   <div className="flex justify-between text-xs mb-1">
-                    <span className="text-slate-400">Base Font Size</span>
-                    <span className="font-mono text-slate-300">{fontSize}px</span>
+                    <span className="text-slate-500 dark:text-slate-400">Base Font Size</span>
+                    <span className="font-mono text-slate-700 dark:text-slate-300">{fontSize}px</span>
                   </div>
                   <input
                     type="range"
@@ -928,15 +949,15 @@ export const ResumeBuilder: React.FC = () => {
                     step="0.5"
                     value={fontSize}
                     onChange={(e) => setFontSize(Number(e.target.value))}
-                    className="w-full accent-indigo-500"
+                    className="w-full accent-emerald-500"
                   />
                   <p className="text-[9px] text-slate-500 mt-1">Adjust to ensure all items fit on one page.</p>
                 </div>
 
                 <div>
                   <div className="flex justify-between text-xs mb-1">
-                    <span className="text-slate-400">Page Margins</span>
-                    <span className="font-mono text-slate-300">{margin}px</span>
+                    <span className="text-slate-500 dark:text-slate-400">Page Margins</span>
+                    <span className="font-mono text-slate-700 dark:text-slate-300">{margin}px</span>
                   </div>
                   <input
                     type="range"
@@ -945,14 +966,14 @@ export const ResumeBuilder: React.FC = () => {
                     step="1"
                     value={margin}
                     onChange={(e) => setMargin(Number(e.target.value))}
-                    className="w-full accent-indigo-500"
+                    className="w-full accent-emerald-500"
                   />
                 </div>
 
                 <div>
                   <div className="flex justify-between text-xs mb-1">
-                    <span className="text-slate-400">Section Spacing</span>
-                    <span className="font-mono text-slate-300">{sectionSpacing}px</span>
+                    <span className="text-slate-500 dark:text-slate-400">Section Spacing</span>
+                    <span className="font-mono text-slate-700 dark:text-slate-300">{sectionSpacing}px</span>
                   </div>
                   <input
                     type="range"
@@ -961,7 +982,7 @@ export const ResumeBuilder: React.FC = () => {
                     step="1"
                     value={sectionSpacing}
                     onChange={(e) => setSectionSpacing(Number(e.target.value))}
-                    className="w-full accent-indigo-500"
+                    className="w-full accent-emerald-500"
                   />
                 </div>
               </div>
@@ -971,8 +992,8 @@ export const ResumeBuilder: React.FC = () => {
           {/* TAB 4: AI Writing Assistant */}
           {activeTab === 'assistant' && (
             <div className="glass-card p-6 rounded-2xl space-y-6">
-              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-2 flex items-center gap-1.5">
-                <Sparkles className="w-4 h-4 text-indigo-400" />
+              <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-2 flex items-center gap-1.5">
+                <Sparkles className="w-4 h-4 text-emerald-500" />
                 <span>AI Writing Diagnostics</span>
               </h3>
 
@@ -1024,8 +1045,8 @@ export const ResumeBuilder: React.FC = () => {
           {/* TAB 5: Version History */}
           {activeTab === 'history' && (
             <div className="glass-card p-6 rounded-2xl space-y-6">
-              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-2 flex items-center gap-1.5">
-                <History className="w-4 h-4 text-indigo-400" />
+              <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-2 flex items-center gap-1.5">
+                <History className="w-4 h-4 text-emerald-500" />
                 <span>Resume Version Manager</span>
               </h3>
 
@@ -1039,7 +1060,7 @@ export const ResumeBuilder: React.FC = () => {
                 />
                 <button
                   onClick={handleSaveVersion}
-                  className="bg-indigo-650 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-xl text-xs"
+                  className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-2 px-4 rounded-xl text-xs transition-all shadow-md shadow-emerald-500/20"
                 >
                   Save Draft
                 </button>
@@ -1047,16 +1068,16 @@ export const ResumeBuilder: React.FC = () => {
 
               <div className="space-y-3">
                 {versions.map((ver) => (
-                  <div key={ver.id} className="p-3 rounded-xl border dark:border-slate-850 border-slate-200 bg-slate-900/10 flex items-center justify-between gap-2">
+                  <div key={ver.id} className="p-3 rounded-xl border dark:border-[#143D32] border-slate-200 bg-slate-50 dark:bg-[#071C17] flex items-center justify-between gap-2">
                     <div className="min-w-0">
-                      <p className="text-xs font-bold text-slate-250 truncate">{ver.name}</p>
+                      <p className="text-xs font-bold text-slate-800 dark:text-slate-200 truncate">{ver.name}</p>
                       <p className="text-[9px] text-slate-500 font-mono mt-0.5">{ver.timestamp}</p>
                     </div>
 
                     <div className="flex gap-1.5 shrink-0">
                       <button
                         onClick={() => handleRestoreVersion(ver)}
-                        className="text-[10px] font-bold text-indigo-400 hover:underline"
+                        className="text-[10px] font-bold text-emerald-500 hover:underline"
                       >
                         Restore
                       </button>
@@ -1369,16 +1390,16 @@ export const ResumeBuilder: React.FC = () => {
       {/* Compare Version Modal */}
       {compareVersion && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-          <div className="bg-slate-950 border border-slate-800 rounded-2xl w-full max-w-4xl max-h-[85vh] overflow-hidden shadow-2xl flex flex-col">
+          <div className="bg-white dark:bg-[#10352C] border border-slate-200 dark:border-[#143D32] rounded-2xl w-full max-w-4xl max-h-[85vh] overflow-hidden shadow-2xl flex flex-col">
             {/* Header */}
-            <div className="p-4 border-b border-slate-850 flex justify-between items-center text-slate-100">
+            <div className="p-4 border-b border-slate-200 dark:border-[#143D32] flex justify-between items-center text-slate-800 dark:text-slate-100">
               <div className="flex items-center gap-2">
-                <History className="w-5 h-5 text-indigo-400" />
+                <History className="w-5 h-5 text-emerald-500" />
                 <span className="font-bold text-sm">Compare Draft: {compareVersion.name} vs Current</span>
               </div>
               <button 
                 onClick={() => setCompareVersion(null)} 
-                className="p-1 hover:bg-slate-850 rounded-lg text-slate-400"
+                className="p-1 hover:bg-slate-100 dark:hover:bg-[#0B2A22] rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1387,22 +1408,22 @@ export const ResumeBuilder: React.FC = () => {
             {/* Body side-by-side */}
             <div className="p-6 overflow-y-auto grid grid-cols-1 md:grid-cols-2 gap-6 text-xs leading-relaxed flex-1">
               <div className="space-y-4">
-                <p className="text-[10px] font-bold text-slate-450 uppercase border-b dark:border-slate-800 pb-1.5">Draft ({compareVersion.timestamp})</p>
-                <div className="space-y-2 p-3 bg-slate-900/40 rounded-xl border border-slate-850">
-                  <p className="font-semibold text-slate-300">Name: {compareVersion.data.personal.fullName}</p>
-                  <p className="font-semibold text-slate-300">Title: {compareVersion.data.personal.title}</p>
-                  <p className="text-slate-400">Summary: {compareVersion.data.personal.summary}</p>
-                  <p className="text-slate-400">Skills: {compareVersion.data.skills.join(', ')}</p>
+                <p className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase border-b border-slate-200 dark:border-[#143D32] pb-1.5">Draft ({compareVersion.timestamp})</p>
+                <div className="space-y-2 p-3 bg-slate-50 dark:bg-[#071C17] rounded-xl border border-slate-200 dark:border-[#143D32]">
+                  <p className="font-semibold text-slate-800 dark:text-slate-300">Name: {compareVersion.data.personal.fullName}</p>
+                  <p className="font-semibold text-slate-800 dark:text-slate-300">Title: {compareVersion.data.personal.title}</p>
+                  <p className="text-slate-600 dark:text-slate-400">Summary: {compareVersion.data.personal.summary}</p>
+                  <p className="text-slate-600 dark:text-slate-400">Skills: {compareVersion.data.skills.join(', ')}</p>
                 </div>
               </div>
 
               <div className="space-y-4">
-                <p className="text-[10px] font-bold text-indigo-400 uppercase border-b dark:border-slate-800 pb-1.5">Current Active Version</p>
-                <div className="space-y-2 p-3 bg-indigo-950/10 rounded-xl border border-indigo-500/10">
-                  <p className="font-semibold text-indigo-350">Name: {resume.personal.fullName}</p>
-                  <p className="font-semibold text-indigo-350">Title: {resume.personal.title}</p>
-                  <p className="text-slate-350">Summary: {resume.personal.summary}</p>
-                  <p className="text-slate-350">Skills: {resume.skills.join(', ')}</p>
+                <p className="text-[10px] font-bold text-emerald-500 uppercase border-b border-slate-200 dark:border-[#143D32] pb-1.5">Current Active Version</p>
+                <div className="space-y-2 p-3 bg-emerald-500/10 rounded-xl border border-emerald-500/20">
+                  <p className="font-semibold text-emerald-600 dark:text-emerald-400">Name: {resume.personal.fullName}</p>
+                  <p className="font-semibold text-emerald-600 dark:text-emerald-400">Title: {resume.personal.title}</p>
+                  <p className="text-slate-700 dark:text-slate-300">Summary: {resume.personal.summary}</p>
+                  <p className="text-slate-700 dark:text-slate-300">Skills: {resume.skills.join(', ')}</p>
                 </div>
               </div>
             </div>

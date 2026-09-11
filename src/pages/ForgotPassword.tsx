@@ -64,7 +64,7 @@ export const ForgotPassword: React.FC = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@university.edu"
-                className="w-full pl-9 pr-4 py-2.5 bg-slate-900 border border-slate-800 focus:border-indigo-500 rounded-lg text-sm text-slate-100 placeholder-slate-650 focus:outline-none"
+                className="w-full pl-9 pr-4 py-2.5 bg-[#071C17] border border-[#143D32] focus:border-emerald-500 focus:ring-1 focus:ring-teal-500/50 rounded-lg text-sm text-slate-100 placeholder-slate-500 focus:outline-none transition-all"
               />
             </div>
           </div>
@@ -72,7 +72,7 @@ export const ForgotPassword: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full flex items-center justify-center gap-2 bg-indigo-650 hover:bg-indigo-650/90 text-white font-medium py-2.5 rounded-lg text-sm transition-all"
+            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-medium py-2.5 rounded-lg text-sm transition-all shadow-lg shadow-emerald-900/30 disabled:opacity-50 cursor-pointer"
           >
             {loading ? 'Sending link...' : 'Send Recovery Link'}
             {!loading && <ArrowRight className="w-4 h-4" />}
@@ -80,9 +80,9 @@ export const ForgotPassword: React.FC = () => {
         </form>
       )}
 
-      <div className="text-center text-xs text-slate-550 border-t border-slate-900 pt-4">
+      <div className="text-center text-xs text-slate-400 border-t border-[#143D32] pt-4">
         Remembered password?{' '}
-        <Link to="/login" className="text-indigo-400 hover:text-indigo-300 font-semibold">
+        <Link to="/login" className="text-teal-400 hover:text-emerald-400 font-semibold transition-colors">
           Sign In
         </Link>
       </div>

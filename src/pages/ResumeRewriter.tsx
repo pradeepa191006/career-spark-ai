@@ -223,8 +223,8 @@ export const ResumeRewriter: React.FC = () => {
     <div className="space-y-8 text-xs leading-normal">
       {/* Title Header */}
       <div>
-        <h2 className="text-xl font-bold text-slate-850 dark:text-slate-100 flex items-center gap-2">
-          <Sparkles className="w-5 h-5 text-indigo-500" />
+        <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+          <Sparkles className="w-5 h-5 text-emerald-500" />
           <span>AI Resume Rewriter & Bullet Enhancer</span>
         </h2>
         <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -250,17 +250,17 @@ export const ResumeRewriter: React.FC = () => {
         {/* Left Form Column: Input Setup */}
         <div className="lg:col-span-5 space-y-6">
           <div className="glass-card p-6 rounded-2xl space-y-6">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-3">
+            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-3">
               1. Choose Resume Source
             </h3>
 
             {/* Source Tab Selector */}
-            <div className="grid grid-cols-3 bg-slate-100 dark:bg-slate-950 p-1 rounded-xl gap-1 text-[11px]">
+            <div className="grid grid-cols-3 bg-slate-100 dark:bg-[#071C17] border border-slate-200 dark:border-[#143D32] p-1 rounded-xl gap-1 text-[11px]">
               <button
                 type="button"
                 onClick={() => setResumeSource('import_file')}
-                className={`py-2 px-2 font-semibold rounded-lg transition-all flex flex-col items-center gap-1 ${
-                  resumeSource === 'import_file' ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
+                className={`py-2 px-2 font-semibold rounded-lg transition-all flex flex-col items-center gap-1 cursor-pointer ${
+                  resumeSource === 'import_file' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
                 }`}
               >
                 <Upload className="w-4 h-4" />
@@ -270,8 +270,8 @@ export const ResumeRewriter: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setResumeSource('paste_text')}
-                className={`py-2 px-2 font-semibold rounded-lg transition-all flex flex-col items-center gap-1 ${
-                  resumeSource === 'paste_text' ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
+                className={`py-2 px-2 font-semibold rounded-lg transition-all flex flex-col items-center gap-1 cursor-pointer ${
+                  resumeSource === 'paste_text' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
                 }`}
               >
                 <FileText className="w-4 h-4" />
@@ -281,8 +281,8 @@ export const ResumeRewriter: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setResumeSource('existing_account')}
-                className={`py-2 px-2 font-semibold rounded-lg transition-all flex flex-col items-center gap-1 ${
-                  resumeSource === 'existing_account' ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
+                className={`py-2 px-2 font-semibold rounded-lg transition-all flex flex-col items-center gap-1 cursor-pointer ${
+                  resumeSource === 'existing_account' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
                 }`}
               >
                 <Import className="w-4 h-4" />
@@ -375,7 +375,7 @@ export const ResumeRewriter: React.FC = () => {
             <button
               onClick={handleRewrite}
               disabled={loading || uploading}
-              className="w-full flex items-center justify-center gap-2 bg-indigo-650 hover:bg-indigo-755 text-white font-semibold py-3 rounded-xl text-xs transition-all shadow-lg shadow-indigo-600/20 cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-3 rounded-xl text-xs transition-all shadow-lg shadow-emerald-950/20 cursor-pointer disabled:opacity-50"
             >
               {loading ? (
                 <>
@@ -395,9 +395,9 @@ export const ResumeRewriter: React.FC = () => {
         {/* Right Pane: Side-by-side ORIGINAL vs REWRITTEN Comparison */}
         <div ref={resultsRef} className="lg:col-span-7 space-y-6">
           <div className="glass-card p-6 rounded-2xl space-y-6 h-full flex flex-col justify-start">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-3 flex items-center justify-between">
+            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-3 flex items-center justify-between">
               <span className="flex items-center gap-1.5">
-                <Sparkles className="w-4 h-4 text-indigo-500" />
+                <Sparkles className="w-4 h-4 text-emerald-500" />
                 Original vs Rewritten Side-by-Side
               </span>
             </h3>
@@ -407,36 +407,36 @@ export const ResumeRewriter: React.FC = () => {
                 {/* Side-by-Side Comparison Box */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Original Panel */}
-                  <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/40 space-y-2">
-                    <span className="text-[10px] font-bold text-slate-400 uppercase">ORIGINAL CONTENT</span>
+                  <div className="p-4 rounded-xl border border-slate-200 dark:border-[#143D32] bg-slate-50 dark:bg-[#071C17] space-y-2">
+                    <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">ORIGINAL CONTENT</span>
                     <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-mono whitespace-pre-line">
                       {originalText}
                     </p>
                   </div>
 
                   {/* Rewritten Panel */}
-                  <div className="p-4 rounded-xl border border-indigo-500/30 bg-indigo-500/5 space-y-2 relative">
-                    <div className="flex justify-between items-center border-b border-indigo-500/20 pb-2">
-                      <span className="text-[10px] font-bold text-indigo-400 uppercase flex items-center gap-1">
-                        <Sparkles className="w-3 h-3 animate-pulse" />
+                  <div className="p-4 rounded-xl border border-emerald-500/40 bg-emerald-500/10 dark:bg-emerald-950/30 space-y-2 relative">
+                    <div className="flex justify-between items-center border-b border-emerald-500/20 pb-2">
+                      <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase flex items-center gap-1">
+                        <Sparkles className="w-3 h-3 animate-pulse text-emerald-500" />
                         REWRITTEN (ATS OPTIMIZED)
                       </span>
                     </div>
-                    <p className="text-xs text-slate-800 dark:text-slate-100 font-semibold leading-relaxed font-mono whitespace-pre-line">
+                    <p className="text-xs text-slate-900 dark:text-slate-100 font-semibold leading-relaxed font-mono whitespace-pre-line">
                       {rewrittenOutput}
                     </p>
                   </div>
                 </div>
 
                 {/* 7 Action Controls Toolbar */}
-                <div className="p-4 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
+                <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#071C17] border border-slate-200 dark:border-[#143D32] flex flex-wrap items-center justify-between gap-3 text-xs">
                   <span className="font-bold text-slate-500 uppercase text-[10px]">Action Toolbar:</span>
 
                   <div className="flex flex-wrap items-center gap-2">
                     {/* 1. Accept Change */}
                     <button
                       onClick={handleSaveToAccount}
-                      className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg transition-all flex items-center gap-1"
+                      className="px-3 py-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold rounded-lg transition-all flex items-center gap-1 cursor-pointer shadow-sm"
                       title="Apply change to active builder"
                     >
                       <Check className="w-3.5 h-3.5" />
@@ -446,7 +446,7 @@ export const ResumeRewriter: React.FC = () => {
                     {/* 2. Reject Change */}
                     <button
                       onClick={() => setRewrittenOutput(null)}
-                      className="px-3 py-1.5 border border-slate-300 dark:border-slate-800 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 font-semibold rounded-lg transition-all flex items-center gap-1"
+                      className="px-3 py-1.5 border border-slate-300 dark:border-[#143D32] hover:bg-slate-200 dark:hover:bg-[#0B2A22] text-slate-600 dark:text-slate-400 font-semibold rounded-lg transition-all flex items-center gap-1 cursor-pointer"
                     >
                       <X className="w-3.5 h-3.5" />
                       <span>Reject</span>
@@ -458,7 +458,7 @@ export const ResumeRewriter: React.FC = () => {
                         setEditingText(rewrittenOutput);
                         setIsEditing(true);
                       }}
-                      className="px-3 py-1.5 border border-slate-300 dark:border-slate-800 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 font-semibold rounded-lg transition-all flex items-center gap-1"
+                      className="px-3 py-1.5 border border-slate-300 dark:border-[#143D32] hover:bg-slate-200 dark:hover:bg-[#0B2A22] text-slate-600 dark:text-slate-400 font-semibold rounded-lg transition-all flex items-center gap-1 cursor-pointer"
                     >
                       <Edit3 className="w-3.5 h-3.5" />
                       <span>Edit Manually</span>
@@ -467,7 +467,7 @@ export const ResumeRewriter: React.FC = () => {
                     {/* 4. Regenerate */}
                     <button
                       onClick={handleRewrite}
-                      className="px-3 py-1.5 border border-indigo-500/30 text-indigo-400 hover:bg-indigo-500/10 font-semibold rounded-lg transition-all flex items-center gap-1"
+                      className="px-3 py-1.5 border border-teal-500/30 text-teal-600 dark:text-teal-400 hover:bg-teal-500/10 font-semibold rounded-lg transition-all flex items-center gap-1 cursor-pointer"
                     >
                       <RefreshCw className="w-3.5 h-3.5" />
                       <span>Regenerate</span>
@@ -476,7 +476,7 @@ export const ResumeRewriter: React.FC = () => {
                     {/* 5. Copy */}
                     <button
                       onClick={() => handleCopy(rewrittenOutput)}
-                      className="px-3 py-1.5 border border-slate-300 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-semibold rounded-lg transition-all flex items-center gap-1"
+                      className="px-3 py-1.5 border border-slate-300 dark:border-[#143D32] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-semibold rounded-lg transition-all flex items-center gap-1 cursor-pointer"
                     >
                       {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
                       <span>{copied ? 'Copied' : 'Copy'}</span>
@@ -485,7 +485,7 @@ export const ResumeRewriter: React.FC = () => {
                     {/* 6. Download */}
                     <button
                       onClick={handleDownload}
-                      className="px-3 py-1.5 border border-slate-300 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-semibold rounded-lg transition-all flex items-center gap-1"
+                      className="px-3 py-1.5 border border-slate-300 dark:border-[#143D32] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-semibold rounded-lg transition-all flex items-center gap-1 cursor-pointer"
                     >
                       <Download className="w-3.5 h-3.5" />
                       <span>Download</span>
@@ -496,17 +496,17 @@ export const ResumeRewriter: React.FC = () => {
                 {/* Additional Variations */}
                 {variations.length > 0 && (
                   <div className="space-y-3 pt-2">
-                    <h4 className="text-[10px] font-bold text-slate-400 uppercase">Alternative Phrase Variations</h4>
+                    <h4 className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">Alternative Phrase Variations</h4>
                     <div className="space-y-2">
                       {variations.map((varText, idx) => (
                         <div 
                           key={idx} 
-                          className="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/20 flex justify-between items-center text-xs"
+                          className="p-3.5 rounded-xl border border-slate-200 dark:border-[#143D32] bg-slate-50 dark:bg-[#071C17] flex justify-between items-center text-xs"
                         >
                           <p className="font-mono text-slate-700 dark:text-slate-300 flex-1 pr-3">"{varText}"</p>
                           <button
                             onClick={() => setRewrittenOutput(varText)}
-                            className="text-xs font-bold text-indigo-500 hover:underline shrink-0"
+                            className="text-xs font-bold text-teal-600 dark:text-teal-400 hover:text-emerald-500 hover:underline shrink-0 cursor-pointer"
                           >
                             Use Variation
                           </button>
@@ -517,8 +517,8 @@ export const ResumeRewriter: React.FC = () => {
                 )}
               </div>
             ) : (
-              <div className="flex-1 flex flex-col items-center justify-center py-20 text-center border border-dashed border-slate-300 dark:border-slate-800 rounded-xl">
-                <Sparkles className="w-12 h-12 text-slate-400 dark:text-slate-700 mb-3 animate-pulse" />
+              <div className="flex-1 flex flex-col items-center justify-center py-20 text-center border border-dashed border-slate-300 dark:border-[#143D32] rounded-xl">
+                <Sparkles className="w-12 h-12 text-slate-400 dark:text-emerald-500/40 mb-3 animate-pulse" />
                 <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">Rewritten Comparison Dashboard</h4>
                 <p className="text-xs text-slate-500 max-w-xs mt-1">Select file import, paste text, or saved resume on the left and run AI rephrasing to compare side-by-side.</p>
               </div>
@@ -529,11 +529,11 @@ export const ResumeRewriter: React.FC = () => {
 
       {/* Manual Editing Modal */}
       {isEditing && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl flex flex-col">
-            <div className="p-4 border-b border-slate-800 flex justify-between items-center text-slate-100">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
+          <div className="bg-white dark:bg-[#10352C] border border-slate-200 dark:border-[#143D32] rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl flex flex-col">
+            <div className="p-4 border-b border-slate-200 dark:border-[#143D32] flex justify-between items-center text-slate-900 dark:text-slate-100">
               <span className="font-bold text-sm">Edit Rewritten Content</span>
-              <button onClick={() => setIsEditing(false)} className="text-slate-400 hover:text-white">
+              <button onClick={() => setIsEditing(false)} className="text-slate-400 hover:text-slate-600 dark:hover:text-white cursor-pointer">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -547,7 +547,7 @@ export const ResumeRewriter: React.FC = () => {
               <div className="flex justify-end gap-2 text-xs">
                 <button
                   onClick={() => setIsEditing(false)}
-                  className="px-4 py-2 border border-slate-800 text-slate-400 font-semibold rounded-xl"
+                  className="px-4 py-2 border border-slate-300 dark:border-[#143D32] hover:bg-slate-100 dark:hover:bg-[#0B2A22] text-slate-700 dark:text-slate-300 font-semibold rounded-xl cursor-pointer"
                 >
                   Cancel
                 </button>
@@ -557,7 +557,7 @@ export const ResumeRewriter: React.FC = () => {
                     setIsEditing(false);
                     showToast('Updated rewritten statement.', 'success');
                   }}
-                  className="px-4 py-2 bg-indigo-650 text-white font-semibold rounded-xl"
+                  className="px-4 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold rounded-xl cursor-pointer shadow-md shadow-emerald-950/20"
                 >
                   Apply Manual Edits
                 </button>

@@ -152,16 +152,16 @@ export const Profile: React.FC = () => {
   return (
     <div className="space-y-8 text-xs leading-normal">
       {/* Header section with auto-save indicators */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b dark:border-slate-800 pb-4">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-200 dark:border-[#143D32] pb-4">
         <div>
-          <h2 className="text-xl font-bold text-slate-855 dark:text-slate-100">My Student Profile</h2>
-          <p className="text-xs text-slate-550 dark:text-slate-400 mt-1">Manage credentials used across resumes and shareable portfolios</p>
+          <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">My Student Profile</h2>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Manage credentials used across resumes and shareable portfolios</p>
         </div>
         
         {/* Autosave HUD */}
-        <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 px-3.5 py-1.5 rounded-xl">
-          <CloudLightning className={`w-3.5 h-3.5 ${saveStatus === 'saving' ? 'text-indigo-400 animate-bounce' : 'text-slate-500'}`} />
-          <span className="font-semibold text-slate-350">
+        <div className="flex items-center gap-2 bg-slate-100 dark:bg-[#071C17] border border-slate-200 dark:border-[#143D32] px-3.5 py-1.5 rounded-xl">
+          <CloudLightning className={`w-3.5 h-3.5 ${saveStatus === 'saving' ? 'text-emerald-500 animate-bounce' : 'text-slate-400'}`} />
+          <span className="font-semibold text-slate-600 dark:text-slate-300">
             {saveStatus === 'saving' ? 'Saving changes...' : saveStatus === 'saved' ? `Saved successfully (Last saved: ${lastSaved})` : 'Autosave active'}
           </span>
         </div>
@@ -172,8 +172,8 @@ export const Profile: React.FC = () => {
         <div className="lg:col-span-2 space-y-6">
           {/* Personal Info */}
           <div className="glass-card p-6 rounded-2xl space-y-6">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-3 flex items-center gap-2">
-              <User className="w-4 h-4 text-indigo-500" />
+            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-3 flex items-center gap-2">
+              <User className="w-4 h-4 text-emerald-500" />
               <span>Personal Information</span>
             </h3>
 
@@ -183,7 +183,7 @@ export const Profile: React.FC = () => {
                 <img 
                   src={formData.avatar_url} 
                   alt="Profile" 
-                  className="w-24 h-24 rounded-2xl object-cover border-2 border-indigo-500"
+                  className="w-24 h-24 rounded-2xl object-cover border-2 border-emerald-500 shadow-md shadow-emerald-500/20"
                 />
               </div>
               <div className="flex-1 w-full max-w-sm">
@@ -281,14 +281,14 @@ export const Profile: React.FC = () => {
 
           {/* Education Details */}
           <div className="glass-card p-6 rounded-2xl space-y-6">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-3 flex items-center gap-2">
-              <School className="w-4 h-4 text-indigo-500" />
+            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-3 flex items-center gap-2">
+              <School className="w-4 h-4 text-teal-500" />
               <span>Academic Details</span>
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">College Name</label>
+                <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">College Name</label>
                 <input
                   type="text"
                   name="college_name"
@@ -299,7 +299,7 @@ export const Profile: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Degree</label>
+                <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Degree</label>
                 <input
                   type="text"
                   name="degree"
@@ -310,7 +310,7 @@ export const Profile: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Department</label>
+                <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Department</label>
                 <input
                   type="text"
                   name="department"
@@ -322,7 +322,7 @@ export const Profile: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">CGPA</label>
+                  <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">CGPA</label>
                   <input
                     type="number"
                     name="cgpa"
@@ -333,7 +333,7 @@ export const Profile: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Graduation Year</label>
+                  <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Graduation Year</label>
                   <input
                     type="number"
                     name="graduation_year"
@@ -348,14 +348,14 @@ export const Profile: React.FC = () => {
 
           {/* Social Links */}
           <div className="glass-card p-6 rounded-2xl space-y-6">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-3 flex items-center gap-2">
-              <Globe className="w-4 h-4 text-indigo-500" />
+            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-3 flex items-center gap-2">
+              <Globe className="w-4 h-4 text-emerald-500" />
               <span>Social & Project Handles</span>
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">GitHub profile</label>
+                <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">GitHub profile</label>
                 <input
                   type="text"
                   name="github_url"
@@ -365,7 +365,7 @@ export const Profile: React.FC = () => {
                 />
               </div>
               <div>
-                <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">LinkedIn profile</label>
+                <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">LinkedIn profile</label>
                 <input
                   type="text"
                   name="linkedin_url"
@@ -375,7 +375,7 @@ export const Profile: React.FC = () => {
                 />
               </div>
               <div>
-                <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Personal Portfolio Link</label>
+                <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Personal Portfolio Link</label>
                 <input
                   type="text"
                   name="portfolio_url"
@@ -392,8 +392,8 @@ export const Profile: React.FC = () => {
         <div className="space-y-6">
           {/* Primary Skills */}
           <div className="glass-card p-5 rounded-2xl space-y-4">
-            <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-2 flex items-center gap-2">
-              <Code className="w-4 h-4 text-indigo-500" />
+            <h4 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-2 flex items-center gap-2">
+              <Code className="w-4 h-4 text-emerald-500" />
               <span>Core Skills</span>
             </h4>
 
@@ -408,14 +408,14 @@ export const Profile: React.FC = () => {
                 placeholder="Add core skill"
                 className="flex-1 glass-input py-1.5 px-3 text-xs"
               />
-              <button type="submit" className="p-2 bg-indigo-655 text-white rounded-lg"><Plus className="w-4 h-4" /></button>
+              <button type="submit" className="p-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-lg cursor-pointer"><Plus className="w-4 h-4" /></button>
             </form>
 
             <div className="flex flex-wrap gap-1.5">
               {skills.map((s, idx) => (
-                <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-[10px] font-semibold border border-indigo-500/20">
+                <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[10px] font-semibold border border-emerald-500/20">
                   <span>{s}</span>
-                  <button type="button" onClick={() => handleArrayRemove(s, setSkills)}><Trash2 className="w-3 h-3 text-red-500" /></button>
+                  <button type="button" onClick={() => handleArrayRemove(s, setSkills)}><Trash2 className="w-3 h-3 text-red-500 hover:text-red-600" /></button>
                 </span>
               ))}
             </div>
@@ -423,8 +423,8 @@ export const Profile: React.FC = () => {
 
           {/* Extra Skills */}
           <div className="glass-card p-5 rounded-2xl space-y-4">
-            <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-2 flex items-center gap-2">
-              <Briefcase className="w-4 h-4 text-indigo-500" />
+            <h4 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-2 flex items-center gap-2">
+              <Briefcase className="w-4 h-4 text-teal-500" />
               <span>Extra Skills</span>
             </h4>
 
@@ -439,14 +439,14 @@ export const Profile: React.FC = () => {
                 placeholder="Add extra skill"
                 className="flex-1 glass-input py-1.5 px-3 text-xs"
               />
-              <button type="submit" className="p-2 bg-indigo-655 text-white rounded-lg"><Plus className="w-4 h-4" /></button>
+              <button type="submit" className="p-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-lg cursor-pointer"><Plus className="w-4 h-4" /></button>
             </form>
 
             <div className="flex flex-wrap gap-1.5">
               {extraSkills.map((s, idx) => (
-                <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-semibold border border-emerald-500/20">
+                <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-teal-500/10 text-teal-700 dark:text-teal-300 text-[10px] font-semibold border border-teal-500/20">
                   <span>{s}</span>
-                  <button type="button" onClick={() => handleArrayRemove(s, setExtraSkills)}><Trash2 className="w-3 h-3 text-red-500" /></button>
+                  <button type="button" onClick={() => handleArrayRemove(s, setExtraSkills)}><Trash2 className="w-3 h-3 text-red-500 hover:text-red-600" /></button>
                 </span>
               ))}
             </div>
@@ -454,8 +454,8 @@ export const Profile: React.FC = () => {
 
           {/* Languages */}
           <div className="glass-card p-5 rounded-2xl space-y-4">
-            <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-2 flex items-center gap-2">
-              <Globe className="w-4 h-4 text-indigo-500" />
+            <h4 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-2 flex items-center gap-2">
+              <Globe className="w-4 h-4 text-emerald-500" />
               <span>Languages Known</span>
             </h4>
 
@@ -470,14 +470,14 @@ export const Profile: React.FC = () => {
                 placeholder="Add language"
                 className="flex-1 glass-input py-1.5 px-3 text-xs"
               />
-              <button type="submit" className="p-2 bg-indigo-655 text-white rounded-lg"><Plus className="w-4 h-4" /></button>
+              <button type="submit" className="p-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-lg cursor-pointer"><Plus className="w-4 h-4" /></button>
             </form>
 
             <div className="flex flex-wrap gap-1.5">
               {languages.map((s, idx) => (
-                <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-pink-500/10 text-pink-600 dark:text-pink-400 text-[10px] font-semibold border border-pink-500/20">
+                <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-slate-100 dark:bg-[#071C17] text-slate-700 dark:text-slate-300 text-[10px] font-semibold border border-slate-200 dark:border-[#143D32]">
                   <span>{s}</span>
-                  <button type="button" onClick={() => handleArrayRemove(s, setLanguages)}><Trash2 className="w-3 h-3 text-red-500" /></button>
+                  <button type="button" onClick={() => handleArrayRemove(s, setLanguages)}><Trash2 className="w-3 h-3 text-red-500 hover:text-red-600" /></button>
                 </span>
               ))}
             </div>
@@ -485,8 +485,8 @@ export const Profile: React.FC = () => {
 
           {/* Certifications */}
           <div className="glass-card p-5 rounded-2xl space-y-4">
-            <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-2 flex items-center gap-2">
-              <Award className="w-4 h-4 text-indigo-500" />
+            <h4 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-2 flex items-center gap-2">
+              <Award className="w-4 h-4 text-teal-500" />
               <span>Certifications</span>
             </h4>
 
@@ -501,14 +501,14 @@ export const Profile: React.FC = () => {
                 placeholder="Add credential"
                 className="flex-1 glass-input py-1.5 px-3 text-xs"
               />
-              <button type="submit" className="p-2 bg-indigo-655 text-white rounded-lg"><Plus className="w-4 h-4" /></button>
+              <button type="submit" className="p-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-lg cursor-pointer"><Plus className="w-4 h-4" /></button>
             </form>
 
             <div className="space-y-2">
               {certifications.map((s, idx) => (
-                <div key={idx} className="flex justify-between items-center text-[10px] p-2 bg-slate-900/40 rounded border border-slate-800">
+                <div key={idx} className="flex justify-between items-center text-[10px] p-2 bg-slate-50 dark:bg-[#071C17] rounded border border-slate-200 dark:border-[#143D32] text-slate-800 dark:text-slate-200">
                   <span className="truncate pr-2">{s}</span>
-                  <button type="button" onClick={() => setDeleteTarget({ type: 'cert', value: s })}><Trash2 className="w-3.5 h-3.5 text-red-500" /></button>
+                  <button type="button" onClick={() => setDeleteTarget({ type: 'cert', value: s })}><Trash2 className="w-3.5 h-3.5 text-red-500 hover:text-red-600 cursor-pointer" /></button>
                 </div>
               ))}
             </div>
@@ -516,8 +516,8 @@ export const Profile: React.FC = () => {
 
           {/* Achievements */}
           <div className="glass-card p-5 rounded-2xl space-y-4">
-            <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-2 flex items-center gap-2">
-              <FileText className="w-4 h-4 text-indigo-500" />
+            <h4 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-2 flex items-center gap-2">
+              <FileText className="w-4 h-4 text-emerald-500" />
               <span>Achievements</span>
             </h4>
 
@@ -532,14 +532,14 @@ export const Profile: React.FC = () => {
                 placeholder="Add achievement"
                 className="flex-1 glass-input py-1.5 px-3 text-xs"
               />
-              <button type="submit" className="p-2 bg-indigo-655 text-white rounded-lg"><Plus className="w-4 h-4" /></button>
+              <button type="submit" className="p-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-lg cursor-pointer"><Plus className="w-4 h-4" /></button>
             </form>
 
             <div className="space-y-2">
               {achievements.map((s, idx) => (
-                <div key={idx} className="flex justify-between items-center text-[10px] p-2 bg-slate-900/40 rounded border border-slate-800">
+                <div key={idx} className="flex justify-between items-center text-[10px] p-2 bg-slate-50 dark:bg-[#071C17] rounded border border-slate-200 dark:border-[#143D32] text-slate-800 dark:text-slate-200">
                   <span className="truncate pr-2">{s}</span>
-                  <button type="button" onClick={() => setDeleteTarget({ type: 'achievement', value: s })}><Trash2 className="w-3.5 h-3.5 text-red-500" /></button>
+                  <button type="button" onClick={() => setDeleteTarget({ type: 'achievement', value: s })}><Trash2 className="w-3.5 h-3.5 text-red-500 hover:text-red-600 cursor-pointer" /></button>
                 </div>
               ))}
             </div>

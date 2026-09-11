@@ -166,8 +166,8 @@ export const ResumeOptimizer: React.FC = () => {
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-xl font-bold text-slate-850 dark:text-slate-100 flex items-center gap-2">
-          <TrendingUp className="w-5 h-5 text-indigo-500" />
+        <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+          <TrendingUp className="w-5 h-5 text-emerald-500" />
           <span>AI Resume Optimizer</span>
         </h2>
         <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -183,7 +183,7 @@ export const ResumeOptimizer: React.FC = () => {
       )}
 
       {applySuccess && (
-        <div className="flex items-start gap-2.5 p-3 rounded-lg bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs animate-bounce">
+        <div className="flex items-start gap-2.5 p-3 rounded-lg bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-xs animate-bounce">
           <CheckCircle2 className="w-4.5 h-4.5 shrink-0 mt-0.5" />
           <span>Optimized summaries and verbs applied successfully to your active Resume Builder!</span>
         </div>
@@ -193,18 +193,18 @@ export const ResumeOptimizer: React.FC = () => {
         {/* Left Form Panel */}
         <div className="lg:col-span-4 space-y-6">
           <div className="glass-card p-6 rounded-2xl space-y-6">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-3 flex items-center justify-between">
+            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-3 flex items-center justify-between">
               <span>Optimizing Scope</span>
             </h3>
 
             {/* Source */}
             <div className="space-y-2">
-              <label className="block text-[10px] font-semibold text-slate-400 uppercase">Resume Content Source</label>
-              <div className="flex bg-slate-900/60 border border-slate-850 p-1 rounded-xl gap-0.5">
+              <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase">Resume Content Source</label>
+              <div className="flex bg-slate-100 dark:bg-[#071C17] border border-slate-200 dark:border-[#143D32] p-1 rounded-xl gap-0.5">
                 <button
                   onClick={() => setResumeSource('import')}
-                  className={`flex-1 py-1.5 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-1 ${
-                    resumeSource === 'import' ? 'bg-indigo-650 text-white' : 'text-slate-455'
+                  className={`flex-1 py-1.5 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-1 cursor-pointer ${
+                    resumeSource === 'import' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
                   }`}
                 >
                   <Import className="w-3.5 h-3.5" />
@@ -212,8 +212,8 @@ export const ResumeOptimizer: React.FC = () => {
                 </button>
                 <button
                   onClick={() => setResumeSource('paste')}
-                  className={`flex-1 py-1.5 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-1 ${
-                    resumeSource === 'paste' ? 'bg-indigo-650 text-white' : 'text-slate-455'
+                  className={`flex-1 py-1.5 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-1 cursor-pointer ${
+                    resumeSource === 'paste' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
                   }`}
                 >
                   <FileText className="w-3.5 h-3.5" />
@@ -224,7 +224,7 @@ export const ResumeOptimizer: React.FC = () => {
 
             {/* Resume Text */}
             <div>
-              <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Resume Details to Audit</label>
+              <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Resume Details to Audit</label>
               <textarea
                 rows={12}
                 value={resumeText}
@@ -237,7 +237,7 @@ export const ResumeOptimizer: React.FC = () => {
             <button
               onClick={handleOptimize}
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 bg-indigo-650 hover:bg-indigo-700 text-white font-medium py-3 rounded-xl text-xs transition-all shadow-lg"
+              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-3 rounded-xl text-xs transition-all shadow-lg shadow-emerald-950/20 cursor-pointer disabled:opacity-50"
             >
               {loading ? (
                 <>
@@ -259,52 +259,52 @@ export const ResumeOptimizer: React.FC = () => {
           {report ? (
             <div className="space-y-6">
               {/* ATS Score Comparison */}
-              <div className="glass-card p-6 rounded-2xl grid grid-cols-1 md:grid-cols-2 gap-6 text-center border dark:border-slate-800">
-                <div className="p-4 bg-slate-900/40 rounded-xl border border-slate-850">
-                  <p className="text-xs font-bold text-slate-400 uppercase">Original ATS Score</p>
-                  <p className="text-4xl font-black text-slate-500 mt-2">{report.originalScore}%</p>
+              <div className="glass-card p-6 rounded-2xl grid grid-cols-1 md:grid-cols-2 gap-6 text-center border border-slate-200 dark:border-[#143D32]">
+                <div className="p-4 bg-slate-50 dark:bg-[#071C17] rounded-xl border border-slate-200 dark:border-[#143D32]">
+                  <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Original ATS Score</p>
+                  <p className="text-4xl font-black text-slate-700 dark:text-slate-400 mt-2">{report.originalScore}%</p>
                   <p className="text-[10px] text-slate-500 mt-1">Before keyword alignment</p>
                 </div>
 
-                <div className="p-4 bg-indigo-500/5 rounded-xl border border-indigo-500/10">
-                  <p className="text-xs font-bold text-indigo-400 uppercase">Optimized ATS Score</p>
-                  <p className="text-4xl font-black text-emerald-500 mt-2">{report.optimizedScore}%</p>
-                  <p className="text-[10px] text-indigo-400 mt-1">Tailored keywords & metric upgrades</p>
+                <div className="p-4 bg-emerald-500/10 rounded-xl border border-emerald-500/30">
+                  <p className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Optimized ATS Score</p>
+                  <p className="text-4xl font-black text-emerald-600 dark:text-emerald-400 mt-2">{report.optimizedScore}%</p>
+                  <p className="text-[10px] text-teal-600 dark:text-teal-400 mt-1">Tailored keywords & metric upgrades</p>
                 </div>
               </div>
 
               {/* Progress Gauges */}
               <div className="glass-card p-6 rounded-2xl space-y-5">
-                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-2">Diagnostic Metrics</h3>
+                <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-2">Diagnostic Metrics</h3>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
                   <div className="space-y-1">
-                    <div className="flex justify-between font-semibold">
+                    <div className="flex justify-between font-semibold text-slate-700 dark:text-slate-300">
                       <span>Readability Index</span>
-                      <span>{report.readabilityScore}%</span>
+                      <span className="text-teal-600 dark:text-teal-400">{report.readabilityScore}%</span>
                     </div>
-                    <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                      <div className="h-full bg-indigo-500" style={{ width: `${report.readabilityScore}%` }} />
+                    <div className="w-full h-1.5 bg-slate-200 dark:bg-[#071C17] rounded-full overflow-hidden">
+                      <div className="h-full bg-teal-500" style={{ width: `${report.readabilityScore}%` }} />
                     </div>
                   </div>
 
                   <div className="space-y-1">
-                    <div className="flex justify-between font-semibold">
+                    <div className="flex justify-between font-semibold text-slate-700 dark:text-slate-300">
                       <span>ATS Compatibility</span>
-                      <span>{report.compatibilityScore}%</span>
+                      <span className="text-emerald-600 dark:text-emerald-400">{report.compatibilityScore}%</span>
                     </div>
-                    <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                    <div className="w-full h-1.5 bg-slate-200 dark:bg-[#071C17] rounded-full overflow-hidden">
                       <div className="h-full bg-emerald-500" style={{ width: `${report.compatibilityScore}%` }} />
                     </div>
                   </div>
 
                   <div className="space-y-1">
-                    <div className="flex justify-between font-semibold">
+                    <div className="flex justify-between font-semibold text-slate-700 dark:text-slate-300">
                       <span>Grammar Alignment</span>
-                      <span>{report.grammarScore}%</span>
+                      <span className="text-teal-600 dark:text-teal-400">{report.grammarScore}%</span>
                     </div>
-                    <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                      <div className="h-full bg-cyan-500" style={{ width: `${report.grammarScore}%` }} />
+                    <div className="w-full h-1.5 bg-slate-200 dark:bg-[#071C17] rounded-full overflow-hidden">
+                      <div className="h-full bg-gradient-to-r from-emerald-500 to-teal-500" style={{ width: `${report.grammarScore}%` }} />
                     </div>
                   </div>
                 </div>
@@ -313,10 +313,10 @@ export const ResumeOptimizer: React.FC = () => {
               {/* Added and Removed Highlights */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="glass-card p-5 rounded-2xl space-y-3">
-                  <h4 className="text-xs font-bold text-emerald-500 uppercase tracking-wider">Keywords Added</h4>
+                  <h4 className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Keywords Added</h4>
                   <div className="flex flex-wrap gap-1.5">
                     {report.addedKeywords.map((w, i) => (
-                      <span key={i} className="text-[10px] font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded">
+                      <span key={i} className="text-[10px] font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-300 px-2 py-0.5 rounded">
                         +{w}
                       </span>
                     ))}
@@ -324,10 +324,10 @@ export const ResumeOptimizer: React.FC = () => {
                 </div>
 
                 <div className="glass-card p-5 rounded-2xl space-y-3">
-                  <h4 className="text-xs font-bold text-red-400 uppercase tracking-wider">Weak Buzzwords Removed</h4>
+                  <h4 className="text-xs font-bold text-orange-500 dark:text-orange-400 uppercase tracking-wider">Weak Buzzwords Removed</h4>
                   <div className="flex flex-wrap gap-1.5">
                     {report.removedWeakWords.map((w, i) => (
-                      <span key={i} className="text-[10px] font-semibold bg-red-500/10 border border-red-500/20 text-red-400 px-2 py-0.5 rounded line-through">
+                      <span key={i} className="text-[10px] font-semibold bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-300 px-2 py-0.5 rounded line-through">
                         {w}
                       </span>
                     ))}
@@ -337,24 +337,24 @@ export const ResumeOptimizer: React.FC = () => {
 
               {/* Improved Paragraph Drafts */}
               <div className="glass-card p-6 rounded-2xl space-y-4">
-                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-2">Refactored Statements Preview</h3>
+                <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-2">Refactored Statements Preview</h3>
                 
                 <div className="space-y-3 text-xs leading-relaxed">
-                  <div className="p-3.5 bg-slate-900/40 rounded-xl border border-slate-850">
-                    <p className="text-[10px] font-bold text-indigo-400 uppercase mb-1">Optimized Professional Summary</p>
-                    <p className="text-slate-300 italic">"{report.improvedSummary}"</p>
+                  <div className="p-3.5 bg-slate-50 dark:bg-[#071C17] rounded-xl border border-slate-200 dark:border-[#143D32]">
+                    <p className="text-[10px] font-bold text-teal-600 dark:text-teal-400 uppercase mb-1">Optimized Professional Summary</p>
+                    <p className="text-slate-700 dark:text-slate-300 italic">"{report.improvedSummary}"</p>
                   </div>
 
-                  <div className="p-3.5 bg-slate-900/40 rounded-xl border border-slate-850">
-                    <p className="text-[10px] font-bold text-indigo-400 uppercase mb-1">Optimized Project Bullet</p>
-                    <p className="text-slate-300 italic">"{report.improvedProject}"</p>
+                  <div className="p-3.5 bg-slate-50 dark:bg-[#071C17] rounded-xl border border-slate-200 dark:border-[#143D32]">
+                    <p className="text-[10px] font-bold text-teal-600 dark:text-teal-400 uppercase mb-1">Optimized Project Bullet</p>
+                    <p className="text-slate-700 dark:text-slate-300 italic">"{report.improvedProject}"</p>
                   </div>
                 </div>
 
                 <div className="flex justify-end pt-2">
                   <button
                     onClick={handleApplyOptimization}
-                    className="flex items-center gap-1.5 bg-indigo-650 hover:bg-indigo-750 text-white font-semibold py-2 px-4 rounded-xl text-xs transition-all shadow-md"
+                    className="flex items-center gap-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-2 px-4 rounded-xl text-xs transition-all shadow-md shadow-emerald-950/20 cursor-pointer"
                   >
                     <ShieldCheck className="w-4 h-4" />
                     <span>Apply Optimizer Overrides</span>
@@ -363,8 +363,8 @@ export const ResumeOptimizer: React.FC = () => {
               </div>
             </div>
           ) : (
-            <div className="glass-card p-16 rounded-2xl flex flex-col items-center justify-center text-center border border-dashed dark:border-slate-800 border-slate-350 h-full">
-              <ShieldCheck className="w-12 h-12 text-slate-600 dark:text-slate-850 mb-3" />
+            <div className="glass-card p-16 rounded-2xl flex flex-col items-center justify-center text-center border border-dashed border-slate-300 dark:border-[#143D32] h-full">
+              <ShieldCheck className="w-12 h-12 text-slate-400 dark:text-emerald-500/40 mb-3" />
               <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">Improvement Analysis Dashboard</h4>
               <p className="text-xs text-slate-500 max-w-xs mt-1">Import your builder data and click optimize to audit original vs optimized parameters.</p>
             </div>

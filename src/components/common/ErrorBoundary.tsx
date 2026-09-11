@@ -40,7 +40,7 @@ export class ErrorBoundary extends Component<Props, State> {
   public render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950 p-6 text-slate-900 dark:text-slate-100">
+        <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-[#071C17] p-6 text-slate-900 dark:text-slate-100">
           <div className="max-w-md w-full glass-card p-8 rounded-2xl text-center space-y-6 shadow-2xl border border-red-500/20">
             <div className="w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center mx-auto text-red-500 animate-pulse">
               <AlertTriangle className="w-8 h-8" />
@@ -62,7 +62,7 @@ export class ErrorBoundary extends Component<Props, State> {
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <button
                 onClick={this.handleRetry}
-                className="flex-1 flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 px-4 rounded-xl text-xs transition-all shadow-md"
+                className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-2.5 px-4 rounded-xl text-xs transition-all shadow-md shadow-emerald-500/20"
               >
                 <RefreshCw className="w-4 h-4" />
                 <span>Retry Page</span>
@@ -70,7 +70,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
               <button
                 onClick={this.handleGoHome}
-                className="flex-1 flex items-center justify-center gap-2 border border-slate-300 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 font-semibold py-2.5 px-4 rounded-xl text-xs transition-all"
+                className="flex-1 flex items-center justify-center gap-2 border border-slate-200 dark:border-[#143D32] text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-[#0B2A22] font-semibold py-2.5 px-4 rounded-xl text-xs transition-all"
               >
                 <Home className="w-4 h-4" />
                 <span>Dashboard</span>

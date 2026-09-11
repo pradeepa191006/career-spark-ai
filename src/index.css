@@ -7,20 +7,21 @@
   --color-background: rgb(var(--background));
   --color-foreground: rgb(var(--foreground));
   
+  --color-primary-deep: #064e3b;
   --color-primary: rgb(var(--primary));
-  --color-primary-foreground: rgb(var(--primary-foreground));
+  --color-primary-foreground: #ffffff;
   
   --color-secondary: rgb(var(--secondary));
-  --color-secondary-foreground: rgb(var(--secondary-foreground));
+  --color-secondary-foreground: rgb(var(--foreground));
   
-  --color-accent: rgb(var(--accent));
-  --color-accent-foreground: rgb(var(--accent-foreground));
+  --color-teal: #14b8a6;
+  --color-coral: #f97316;
   
   --color-card: rgb(var(--card));
-  --color-card-foreground: rgb(var(--card-foreground));
+  --color-card-foreground: rgb(var(--foreground));
   
   --color-muted: rgb(var(--muted));
-  --color-muted-foreground: rgb(var(--muted-foreground));
+  --color-muted-foreground: rgb(var(--muted));
   
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
@@ -28,52 +29,55 @@
   
   --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-shimmer: shimmer 2s linear infinite;
+
+  /* Safety alias mapping for legacy indigo utilities to modern Emerald/Teal */
+  --color-indigo-50: #ecfdf5;
+  --color-indigo-100: #d1fae5;
+  --color-indigo-200: #a7f3d0;
+  --color-indigo-300: #6ee7b7;
+  --color-indigo-400: #34d399;
+  --color-indigo-500: #10b981;
+  --color-indigo-600: #059669;
+  --color-indigo-650: #047857;
+  --color-indigo-700: #047857;
+  --color-indigo-750: #065f46;
+  --color-indigo-800: #065f46;
+  --color-indigo-900: #064e3b;
+  --color-indigo-950: #022c22;
 }
 
 @layer base {
   :root {
-    --background: 248, 250, 252;      /* Slate-50 */
-    --foreground: 15, 23, 42;         /* Slate-900 */
+    --background: 248, 250, 252;      /* Light Background #F8FAFC */
+    --foreground: 30, 41, 59;         /* Main Text #1E293B */
     
-    --primary: 99, 102, 241;          /* Indigo-500 */
-    --primary-foreground: 255, 255, 255;
+    --primary-deep: 6, 78, 59;        /* Deep Emerald #064E3B */
+    --primary: 16, 185, 129;          /* Emerald #10B981 */
+    --teal: 20, 184, 166;             /* Teal #14B8A6 */
+    --coral: 249, 115, 22;            /* Coral #F97316 */
     
-    --secondary: 241, 245, 249;        /* Slate-100 */
-    --secondary-foreground: 15, 23, 42;
+    --secondary: 241, 245, 249;       /* Slate-100 */
+    --card: 255, 255, 255;            /* Pure White Card #FFFFFF */
     
-    --accent: 124, 58, 237;           /* Violet-600 */
-    --accent-foreground: 255, 255, 255;
-    
-    --card: 255, 255, 255;
-    --card-foreground: 15, 23, 42;
-    
-    --muted: 100, 116, 139;           /* Slate-500 */
-    --muted-foreground: 71, 85, 105;  /* Slate-600 */
-    
-    --border: 226, 232, 240;          /* Slate-200 */
+    --muted: 100, 116, 139;           /* Secondary Text #64748B */
+    --border: 226, 232, 240;          /* Border #E2E8F0 */
     --radius: 1rem;
   }
 
   .dark {
-    --background: 15, 23, 42;         /* Slate-900 */
-    --foreground: 248, 250, 252;       /* Slate-50 */
+    --background: 7, 28, 23;          /* Dark Background #071C17 */
+    --foreground: 241, 245, 249;      /* Dark Text #F1F5F9 */
     
-    --primary: 129, 140, 248;         /* Indigo-400 */
-    --primary-foreground: 15, 23, 42;
+    --primary-deep: 6, 78, 59;        /* Deep Emerald #064E3B */
+    --primary: 16, 185, 129;          /* Emerald #10B981 */
+    --teal: 20, 184, 166;             /* Teal #14B8A6 */
+    --coral: 249, 115, 22;            /* Coral #F97316 */
     
-    --secondary: 30, 41, 59;          /* Slate-800 */
-    --secondary-foreground: 248, 250, 252;
+    --secondary: 11, 42, 34;          /* Secondary Dark BG #0B2A22 */
+    --card: 16, 53, 44;               /* Dark Card #10352C */
     
-    --accent: 167, 139, 250;          /* Violet-400 */
-    --accent-foreground: 15, 23, 42;
-    
-    --card: 30, 41, 59;               /* Slate-800 */
-    --card-foreground: 248, 250, 252;
-    
-    --muted: 148, 163, 184;           /* Slate-400 */
-    --muted-foreground: 203, 213, 225;/* Slate-300 */
-    
-    --border: 51, 65, 85;             /* Slate-700 */
+    --muted: 148, 163, 184;           /* Muted Text #94A3B8 */
+    --border: 20, 61, 50;             /* Dark Border #143D32 */
   }
 }
 
@@ -85,30 +89,51 @@
   body {
     @apply bg-background text-foreground antialiased font-sans overflow-x-hidden;
     background-image: 
-      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.05) 0px, transparent 50%);
+      radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(20, 184, 166, 0.05) 0px, transparent 50%);
   }
 
   .dark body {
+    background-color: #071c17;
     background-image: 
-      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.1) 0px, transparent 50%);
+      radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(20, 184, 166, 0.08) 0px, transparent 50%);
   }
 }
 
 /* Glassmorphism custom components */
 .glass-panel {
-  @apply bg-white/90 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/60 text-slate-800 dark:text-slate-100;
+  @apply bg-white/95 dark:bg-[#10352C]/95 backdrop-blur-md border border-slate-200/80 dark:border-emerald-800/40 text-slate-800 dark:text-slate-100;
 }
 
 .glass-card {
-  @apply bg-white dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-slate-800/80 shadow-lg shadow-slate-200/50 dark:shadow-black/40 text-slate-800 dark:text-slate-100;
+  @apply bg-white dark:bg-[#10352C] backdrop-blur-md border border-slate-200/90 dark:border-emerald-900/40 shadow-sm shadow-slate-200/50 dark:shadow-black/40 text-slate-800 dark:text-slate-100;
 }
 
 .glass-input {
-  @apply bg-slate-50 dark:bg-slate-950/60 border border-slate-300 dark:border-slate-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500;
+  @apply bg-slate-50 dark:bg-[#071C17]/80 border border-slate-300 dark:border-emerald-900/50 focus:border-emerald-500 focus:ring-1 focus:ring-teal-500 focus:outline-none rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500;
 }
 
+/* Reusable Theme Button Styles */
+.btn-primary {
+  @apply bg-gradient-to-r from-[#064E3B] to-[#14B8A6] hover:from-[#065F46] hover:to-[#0D9488] text-white font-semibold rounded-xl shadow-md shadow-emerald-950/20 transition-all cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply bg-white dark:bg-[#10352C] border border-emerald-500/30 dark:border-emerald-600/40 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 font-semibold rounded-xl transition-all cursor-pointer;
+}
+
+.btn-emerald {
+  @apply bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition-all shadow-sm cursor-pointer disabled:opacity-60;
+}
+
+.btn-teal {
+  @apply bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl transition-all shadow-sm cursor-pointer disabled:opacity-60;
+}
+
+.btn-coral {
+  @apply bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition-all shadow-sm cursor-pointer disabled:opacity-60;
+}
 
 /* Scrollbars */
 ::-webkit-scrollbar {
@@ -121,7 +146,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-300 dark:bg-slate-700 rounded-full hover:bg-slate-400 dark:hover:bg-slate-600;
+  @apply bg-emerald-200 dark:bg-emerald-900/50 rounded-full hover:bg-emerald-300 dark:hover:bg-emerald-800/60;
 }
 
 /* A4 Page Styling for Resume Builder */
@@ -154,3 +179,4 @@
     height: 100%;
   }
 }
+

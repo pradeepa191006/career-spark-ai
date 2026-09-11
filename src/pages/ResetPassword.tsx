@@ -81,7 +81,7 @@ export const ResetPassword: React.FC = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full pl-9 pr-10 py-2.5 bg-slate-900 border border-slate-800 focus:border-indigo-500 rounded-lg text-sm text-slate-100 placeholder-slate-650 focus:outline-none transition-all"
+                className="w-full pl-9 pr-10 py-2.5 bg-[#071C17] border border-[#143D32] focus:border-emerald-500 focus:ring-1 focus:ring-teal-500/50 rounded-lg text-sm text-slate-100 placeholder-slate-500 focus:outline-none transition-all"
               />
               <button
                 type="button"
@@ -105,7 +105,7 @@ export const ResetPassword: React.FC = () => {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full pl-9 pr-10 py-2.5 bg-slate-900 border border-slate-800 focus:border-indigo-500 rounded-lg text-sm text-slate-100 placeholder-slate-650 focus:outline-none transition-all"
+                className="w-full pl-9 pr-10 py-2.5 bg-[#071C17] border border-[#143D32] focus:border-emerald-500 focus:ring-1 focus:ring-teal-500/50 rounded-lg text-sm text-slate-100 placeholder-slate-500 focus:outline-none transition-all"
               />
             </div>
           </div>
@@ -113,7 +113,7 @@ export const ResetPassword: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full flex items-center justify-center gap-2 bg-indigo-650 hover:bg-indigo-700 text-white font-semibold py-2.5 rounded-lg text-sm transition-all shadow-lg shadow-indigo-600/20 disabled:opacity-50 cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-2.5 rounded-lg text-sm transition-all shadow-lg shadow-emerald-900/30 disabled:opacity-50 cursor-pointer"
           >
             {loading ? (
               <>

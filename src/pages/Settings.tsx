@@ -104,11 +104,11 @@ export const Settings: React.FC = () => {
   return (
     <div className="space-y-6 max-w-4xl mx-auto">
       <div>
-        <h2 className="text-xl font-bold text-slate-855 dark:text-slate-100 flex items-center gap-2">
-          <SettingsIcon className="w-5 h-5 text-indigo-550" />
+        <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+          <SettingsIcon className="w-5 h-5 text-emerald-500" />
           <span>Application Settings</span>
         </h2>
-        <p className="text-xs text-slate-550 dark:text-slate-400 mt-1">
+        <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
           Configure security credentials, theme preferences, and sync profile records.
         </p>
       </div>
@@ -118,14 +118,14 @@ export const Settings: React.FC = () => {
         <div className="md:col-span-2 space-y-6">
           {/* Gemini Card */}
           <div className="glass-card p-6 rounded-2xl space-y-4">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-3 flex items-center gap-2">
-              <Key className="w-4 h-4 text-indigo-500" />
+            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-3 flex items-center gap-2">
+              <Key className="w-4 h-4 text-emerald-500" />
               <span>Google Gemini API Credentials</span>
             </h3>
             
             <form onSubmit={handleSaveKey} className="space-y-4 text-xs">
               <div>
-                <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Gemini API Key</label>
+                <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Gemini API Key</label>
                 <div className="relative">
                   <input
                     type={showKey ? 'text' : 'password'}
@@ -137,7 +137,7 @@ export const Settings: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setShowKey(!showKey)}
-                    className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-500 hover:text-slate-350"
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
                   >
                     {showKey ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
@@ -146,7 +146,7 @@ export const Settings: React.FC = () => {
 
               <button
                 type="submit"
-                className="flex items-center gap-1.5 bg-indigo-650 hover:bg-indigo-755 text-white font-semibold py-2 px-4 rounded-xl text-xs transition-all shadow-md"
+                className="flex items-center gap-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-2 px-4 rounded-xl text-xs transition-all shadow-md shadow-emerald-500/20"
               >
                 {apiKeySuccess ? <Check className="w-4 h-4" /> : <Save className="w-4 h-4" />}
                 <span>{apiKeySuccess ? 'Saved Locally' : 'Save Key'}</span>
@@ -156,15 +156,15 @@ export const Settings: React.FC = () => {
 
           {/* Profile Card */}
           <div className="glass-card p-6 rounded-2xl space-y-4">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-3 flex items-center gap-2">
-              <User className="w-4 h-4 text-indigo-500" />
+            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-3 flex items-center gap-2">
+              <User className="w-4 h-4 text-teal-500" />
               <span>Sync Personal Profile</span>
             </h3>
 
             <form onSubmit={handleSaveProfile} className="space-y-4 text-xs">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Full Name</label>
+                  <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Full Name</label>
                   <input
                     type="text"
                     value={profileData.fullName}
@@ -173,7 +173,7 @@ export const Settings: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Email Address</label>
+                  <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Email Address</label>
                   <input
                     type="email"
                     value={profileData.email}
@@ -185,7 +185,7 @@ export const Settings: React.FC = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Phone</label>
+                  <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Phone</label>
                   <input
                     type="text"
                     value={profileData.phone}
@@ -194,7 +194,7 @@ export const Settings: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Location</label>
+                  <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Location</label>
                   <input
                     type="text"
                     value={profileData.location}
@@ -205,7 +205,7 @@ export const Settings: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Professional Headline</label>
+                <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Professional Headline</label>
                 <input
                   type="text"
                   value={profileData.headline}
@@ -216,7 +216,7 @@ export const Settings: React.FC = () => {
 
               <button
                 type="submit"
-                className="flex items-center gap-1.5 bg-indigo-650 hover:bg-indigo-755 text-white font-semibold py-2 px-4 rounded-xl text-xs transition-all shadow-md"
+                className="flex items-center gap-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-2 px-4 rounded-xl text-xs transition-all shadow-md shadow-emerald-500/20"
               >
                 {profileSuccess ? <Check className="w-4 h-4" /> : <Save className="w-4 h-4" />}
                 <span>{profileSuccess ? 'Profile Updated' : 'Update Profile'}</span>
@@ -226,19 +226,19 @@ export const Settings: React.FC = () => {
 
           {/* Password Security Card */}
           <div className="glass-card p-6 rounded-2xl space-y-4">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-3 flex items-center gap-2">
-              <Lock className="w-4 h-4 text-indigo-500" />
+            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-3 flex items-center gap-2">
+              <Lock className="w-4 h-4 text-emerald-500" />
               <span>Update Credentials</span>
             </h3>
 
             {passwordError && (
-              <div className="p-2.5 rounded bg-red-950/40 border border-red-500/20 text-red-400 text-[10px]">
+              <div className="p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-500 dark:text-rose-400 text-xs font-medium">
                 {passwordError}
               </div>
             )}
 
             {passwordSuccess && (
-              <div className="p-2.5 rounded bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-[10px]">
+              <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-medium">
                 Credentials updated successfully!
               </div>
             )}
@@ -246,7 +246,7 @@ export const Settings: React.FC = () => {
             <form onSubmit={handleSavePassword} className="space-y-4 text-xs">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">New Password</label>
+                  <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">New Password</label>
                   <input
                     type="password"
                     value={newPassword}
@@ -256,7 +256,7 @@ export const Settings: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Confirm Password</label>
+                  <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Confirm Password</label>
                   <input
                     type="password"
                     value={confirmPassword}
@@ -269,7 +269,7 @@ export const Settings: React.FC = () => {
 
               <button
                 type="submit"
-                className="flex items-center gap-1.5 bg-indigo-650 hover:bg-indigo-755 text-white font-semibold py-2 px-4 rounded-xl text-xs transition-all shadow-md"
+                className="flex items-center gap-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-2 px-4 rounded-xl text-xs transition-all shadow-md shadow-emerald-500/20"
               >
                 {passwordSuccess ? <Check className="w-4 h-4" /> : <Save className="w-4 h-4" />}
                 <span>Update Password</span>
@@ -282,8 +282,8 @@ export const Settings: React.FC = () => {
         <div className="space-y-6">
           {/* Preferences Card */}
           <div className="glass-card p-6 rounded-2xl space-y-4">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-3 flex items-center gap-2">
-              <Globe className="w-4 h-4 text-indigo-500" />
+            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-3 flex items-center gap-2">
+              <Globe className="w-4 h-4 text-teal-500" />
               <span>System preferences</span>
             </h3>
 
@@ -291,13 +291,13 @@ export const Settings: React.FC = () => {
               {/* Theme Toggle */}
               <div className="flex justify-between items-center py-1">
                 <div>
-                  <span className="font-semibold text-slate-300">Theme Preference</span>
+                  <span className="font-semibold text-slate-700 dark:text-slate-300">Theme Preference</span>
                   <p className="text-[10px] text-slate-500">Choose dark or light visual interface</p>
                 </div>
                 <button
                   type="button"
                   onClick={toggleTheme}
-                  className="px-3 py-1.5 border dark:border-slate-800 rounded-xl hover:bg-slate-900 capitalize font-semibold font-mono text-[10px]"
+                  className="px-3 py-1.5 border border-slate-200 dark:border-[#143D32] bg-slate-50 dark:bg-[#0B2A22] text-slate-700 dark:text-slate-200 rounded-xl hover:border-emerald-500 capitalize font-semibold font-mono text-[10px] transition-colors"
                 >
                   {theme}
                 </button>
@@ -305,7 +305,7 @@ export const Settings: React.FC = () => {
 
               {/* Language */}
               <div>
-                <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Language Selection</label>
+                <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Language Selection</label>
                 <select
                   value={lang}
                   onChange={(e) => setLang(e.target.value)}
@@ -320,7 +320,7 @@ export const Settings: React.FC = () => {
 
               {/* Notifications */}
               <div className="space-y-3 pt-2">
-                <span className="text-[10px] font-semibold text-slate-400 uppercase">Notification Subscriptions</span>
+                <span className="text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase">Notification Subscriptions</span>
                 
                 <div className="flex items-center gap-2">
                   <input
@@ -328,9 +328,9 @@ export const Settings: React.FC = () => {
                     id="emailReports"
                     checked={notifications.emailReports}
                     onChange={(e) => setNotifications(prev => ({ ...prev, emailReports: e.target.checked }))}
-                    className="rounded accent-indigo-500"
+                    className="rounded accent-emerald-500"
                   />
-                  <label htmlFor="emailReports" className="text-slate-400 text-[10px]">Email Match scan reports</label>
+                  <label htmlFor="emailReports" className="text-slate-600 dark:text-slate-400 text-[10px]">Email Match scan reports</label>
                 </div>
 
                 <div className="flex items-center gap-2">
@@ -339,16 +339,16 @@ export const Settings: React.FC = () => {
                     id="badgeUnlocks"
                     checked={notifications.badgeUnlocks}
                     onChange={(e) => setNotifications(prev => ({ ...prev, badgeUnlocks: e.target.checked }))}
-                    className="rounded accent-indigo-500"
+                    className="rounded accent-emerald-500"
                   />
-                  <label htmlFor="badgeUnlocks" className="text-slate-400 text-[10px]">Instant Badge Achievements notification</label>
+                  <label htmlFor="badgeUnlocks" className="text-slate-600 dark:text-slate-400 text-[10px]">Instant Badge Achievements notification</label>
                 </div>
               </div>
 
               {/* Privacy */}
-              <div className="space-y-3 pt-2 border-t dark:border-slate-850">
-                <span className="text-[10px] font-semibold text-slate-400 uppercase flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-indigo-500" />
+              <div className="space-y-3 pt-2 border-t border-slate-200 dark:border-[#143D32]">
+                <span className="text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase flex items-center gap-1">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
                   <span>Privacy details</span>
                 </span>
                 
@@ -358,15 +358,15 @@ export const Settings: React.FC = () => {
                     id="portfolioPublic"
                     checked={privacy.portfolioPublic}
                     onChange={(e) => setPrivacy(prev => ({ ...prev, portfolioPublic: e.target.checked }))}
-                    className="rounded accent-indigo-500"
+                    className="rounded accent-emerald-500"
                   />
-                  <label htmlFor="portfolioPublic" className="text-slate-400 text-[10px]">Allow public portfolio visibility</label>
+                  <label htmlFor="portfolioPublic" className="text-slate-600 dark:text-slate-400 text-[10px]">Allow public portfolio visibility</label>
                 </div>
               </div>
 
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-1.5 bg-indigo-650 hover:bg-indigo-755 text-white font-semibold py-2.5 rounded-xl text-xs transition-all shadow-md"
+                className="w-full flex items-center justify-center gap-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-2.5 rounded-xl text-xs transition-all shadow-md shadow-emerald-500/20"
               >
                 {preferencesSuccess ? <Check className="w-4 h-4" /> : <Save className="w-4 h-4" />}
                 <span>{preferencesSuccess ? 'Preferences Saved' : 'Save Preferences'}</span>

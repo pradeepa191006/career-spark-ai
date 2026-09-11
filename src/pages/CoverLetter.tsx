@@ -131,9 +131,9 @@ export const CoverLetter: React.FC = () => {
       case 'modern':
         return {
           wrapper: 'bg-white text-slate-900 p-12 shadow-lg min-h-[700px] font-sans relative overflow-hidden',
-          header: 'bg-indigo-650/5 p-4 rounded-xl border border-indigo-100 mb-6',
-          title: 'text-xl font-extrabold text-indigo-950',
-          accentText: 'text-indigo-600 font-semibold text-[10px]'
+          header: 'bg-emerald-500/10 p-4 rounded-xl border border-emerald-500/20 mb-6',
+          title: 'text-xl font-extrabold text-slate-900',
+          accentText: 'text-emerald-700 font-semibold text-[10px]'
         };
       case 'minimal':
         return {
@@ -146,9 +146,9 @@ export const CoverLetter: React.FC = () => {
       default:
         return {
           wrapper: 'bg-white text-slate-900 p-12 shadow-lg min-h-[700px] font-sans',
-          header: 'border-b-2 border-indigo-500 pb-4 mb-6',
-          title: 'text-2xl font-black uppercase text-indigo-950',
-          accentText: 'text-indigo-650 font-bold text-[10px]'
+          header: 'border-b-2 border-emerald-600 pb-4 mb-6',
+          title: 'text-2xl font-black uppercase text-slate-900',
+          accentText: 'text-emerald-700 font-bold text-[10px]'
         };
     }
   };
@@ -158,10 +158,10 @@ export const CoverLetter: React.FC = () => {
   return (
     <div className="space-y-8">
       {/* Header controls */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b dark:border-slate-800 pb-4">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-200 dark:border-[#143D32] pb-4">
         <div>
-          <h2 className="text-xl font-bold text-slate-855 dark:text-slate-100 flex items-center gap-2">
-            <Mail className="w-5 h-5 text-indigo-500" />
+          <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+            <Mail className="w-5 h-5 text-emerald-500" />
             <span>AI Cover Letter Generator</span>
           </h2>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -170,18 +170,18 @@ export const CoverLetter: React.FC = () => {
         </div>
 
         {letterContent && (
-          <div className="flex items-center gap-2.5 shrink-0">
+          <div className="flex items-center gap-2.5 shrink-0 flex-wrap">
             <button
               onClick={() => setIsEditing(!isEditing)}
-              className="flex items-center gap-1.5 border border-slate-800 hover:bg-slate-900 text-indigo-400 font-semibold py-2 px-3 rounded-xl text-xs transition-all"
+              className="flex items-center gap-1.5 border border-slate-300 dark:border-[#143D32] hover:bg-slate-100 dark:hover:bg-[#0B2A22] text-slate-700 dark:text-slate-300 font-semibold py-2 px-3 rounded-xl text-xs transition-all cursor-pointer"
             >
-              <Edit className="w-4 h-4" />
+              <Edit className="w-4 h-4 text-teal-500" />
               <span>{isEditing ? 'Preview Layout' : 'Edit Text'}</span>
             </button>
 
             <button
               onClick={handleCopy}
-              className="flex items-center gap-1.5 border border-slate-800 hover:bg-slate-900 text-indigo-400 font-semibold py-2 px-3 rounded-xl text-xs transition-all"
+              className="flex items-center gap-1.5 border border-slate-300 dark:border-[#143D32] hover:bg-slate-100 dark:hover:bg-[#0B2A22] text-slate-700 dark:text-slate-300 font-semibold py-2 px-3 rounded-xl text-xs transition-all cursor-pointer"
             >
               {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
               <span>{copied ? 'Copied!' : 'Copy'}</span>
@@ -189,15 +189,15 @@ export const CoverLetter: React.FC = () => {
 
             <button
               onClick={handleWordDownload}
-              className="flex items-center gap-1.5 border border-slate-800 hover:bg-slate-900 text-indigo-400 font-semibold py-2 px-3 rounded-xl text-xs transition-all"
+              className="flex items-center gap-1.5 border border-slate-300 dark:border-[#143D32] hover:bg-slate-100 dark:hover:bg-[#0B2A22] text-teal-600 dark:text-teal-400 font-semibold py-2 px-3 rounded-xl text-xs transition-all cursor-pointer"
             >
-              <FileText className="w-4 h-4 text-indigo-400" />
+              <FileText className="w-4 h-4 text-teal-500" />
               <span>DOCX</span>
             </button>
 
             <button
               onClick={handlePDFDownload}
-              className="flex items-center gap-1.5 bg-indigo-650 hover:bg-indigo-755 text-white font-semibold py-2 px-4 rounded-xl text-xs transition-all shadow-md"
+              className="flex items-center gap-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-2 px-4 rounded-xl text-xs transition-all shadow-md shadow-emerald-950/20 cursor-pointer"
             >
               <Download className="w-4 h-4" />
               <span>Download PDF</span>
@@ -271,14 +271,14 @@ export const CoverLetter: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Letter Style Template</label>
-              <div className="flex bg-slate-900/60 border border-slate-855 p-1 rounded-xl gap-0.5 text-xs">
+              <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Letter Style Template</label>
+              <div className="flex bg-slate-100 dark:bg-[#071C17] border border-slate-200 dark:border-[#143D32] p-1 rounded-xl gap-0.5 text-xs">
                 {['professional', 'corporate', 'modern', 'minimal'].map((style) => (
                   <button
                     key={style}
                     onClick={() => setTemplate(style as any)}
-                    className={`flex-1 py-1.5 font-semibold rounded-lg transition-all capitalize ${
-                      template === style ? 'bg-indigo-650 text-white' : 'text-slate-455'
+                    className={`flex-1 py-1.5 font-semibold rounded-lg transition-all capitalize cursor-pointer ${
+                      template === style ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
                     }`}
                   >
                     {style}
@@ -288,7 +288,7 @@ export const CoverLetter: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Target Job Description</label>
+              <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Target Job Description</label>
               <textarea
                 rows={4}
                 value={jobDescription}
@@ -301,7 +301,7 @@ export const CoverLetter: React.FC = () => {
             <button
               onClick={handleGenerate}
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 bg-indigo-650 hover:bg-indigo-700 text-white font-medium py-3 rounded-xl text-xs transition-all shadow-lg"
+              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-3 rounded-xl text-xs transition-all shadow-lg shadow-emerald-950/20 cursor-pointer disabled:opacity-50"
             >
               {loading ? (
                 <>
@@ -329,7 +329,7 @@ export const CoverLetter: React.FC = () => {
                     rows={22}
                     value={letterContent}
                     onChange={(e) => setLetterContent(e.target.value)}
-                    className="w-full p-4 border border-slate-300 rounded-lg text-slate-900 text-xs font-mono focus:outline-none focus:border-indigo-500"
+                    className="w-full p-4 border border-slate-300 rounded-lg text-slate-900 text-xs font-mono focus:outline-none focus:border-emerald-500"
                   />
                 </div>
               ) : (

@@ -156,28 +156,28 @@ export const FileUploadZone: React.FC<FileUploadZoneProps> = ({
 
       {fileName ? (
         /* File Uploaded view */
-        <div className="p-4 rounded-xl border border-indigo-500/20 bg-slate-900/40 flex items-center justify-between gap-4">
+        <div className="p-4 rounded-xl border border-emerald-500/30 bg-emerald-950/20 dark:bg-[#0B2A22]/50 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="p-2 bg-indigo-500/10 rounded-lg text-indigo-400 shrink-0">
+            <div className="p-2 bg-emerald-500/15 rounded-lg text-emerald-400 shrink-0">
               <File className="w-5 h-5" />
             </div>
             <div className="min-w-0">
-              <p className="font-semibold text-slate-200 truncate">{fileName}</p>
-              <p className="text-[10px] text-slate-500 mt-0.5">{fileSize} • {fileExtension(fileName)}</p>
+              <p className="font-semibold text-slate-800 dark:text-slate-100 truncate">{fileName}</p>
+              <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">{fileSize} • {fileExtension(fileName)}</p>
             </div>
           </div>
 
           <div className="flex gap-2 shrink-0">
             <button
               onClick={handleBrowseClick}
-              className="p-1.5 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-white transition-colors"
+              className="p-1.5 hover:bg-slate-200 dark:hover:bg-[#143D32] rounded-lg text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
               title="Replace File"
             >
               <RefreshCw className="w-4 h-4" />
             </button>
             <button
               onClick={handleRemove}
-              className="p-1.5 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-rose-500 transition-colors"
+              className="p-1.5 hover:bg-slate-200 dark:hover:bg-[#143D32] rounded-lg text-slate-500 dark:text-slate-400 hover:text-rose-500 transition-colors"
               title="Remove File"
             >
               <X className="w-4 h-4" />
@@ -194,8 +194,8 @@ export const FileUploadZone: React.FC<FileUploadZoneProps> = ({
           onClick={handleBrowseClick}
           className={`border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-all ${
             dragActive 
-              ? 'border-indigo-500 bg-indigo-500/5' 
-              : 'border-slate-800 hover:border-slate-700 bg-slate-900/10'
+              ? 'border-emerald-500 bg-emerald-500/10' 
+              : 'border-slate-300 dark:border-[#143D32] hover:border-emerald-500/60 bg-slate-50/50 dark:bg-[#071C17]/40'
           }`}
         >
           <input
@@ -208,19 +208,19 @@ export const FileUploadZone: React.FC<FileUploadZoneProps> = ({
 
           {uploading ? (
             <div className="space-y-3">
-              <RefreshCw className="w-8 h-8 text-indigo-500 mx-auto animate-spin" />
+              <RefreshCw className="w-8 h-8 text-emerald-500 mx-auto animate-spin" />
               <div className="space-y-1">
-                <p className="font-semibold text-slate-300">Uploading File... {progress}%</p>
-                <div className="w-32 h-1.5 bg-slate-800 rounded-full mx-auto overflow-hidden">
-                  <div className="h-full bg-indigo-500 rounded-full" style={{ width: `${progress}%` }} />
+                <p className="font-semibold text-slate-700 dark:text-slate-300">Uploading File... {progress}%</p>
+                <div className="w-32 h-1.5 bg-slate-200 dark:bg-[#0B2A22] rounded-full mx-auto overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full" style={{ width: `${progress}%` }} />
                 </div>
               </div>
             </div>
           ) : (
             <div className="space-y-2">
-              <UploadCloud className="w-8 h-8 text-slate-500 mx-auto" />
+              <UploadCloud className="w-8 h-8 text-emerald-500/70 dark:text-emerald-400/70 mx-auto" />
               <div>
-                <p className="font-bold text-slate-300">Drag & drop file here, or <span className="text-indigo-400 underline">browse</span></p>
+                <p className="font-bold text-slate-700 dark:text-slate-200">Drag & drop file here, or <span className="text-teal-600 dark:text-teal-400 underline">browse</span></p>
                 <p className="text-[10px] text-slate-500 mt-1">Supports: {acceptTypes.join(', ')} (Max {maxSizeMB}MB)</p>
               </div>
             </div>

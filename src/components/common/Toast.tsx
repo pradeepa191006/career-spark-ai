@@ -42,15 +42,15 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ childre
           const iconMap = {
             success: <CheckCircle2 className="w-5 h-5 text-emerald-400" />,
             error: <XCircle className="w-5 h-5 text-rose-400" />,
-            warning: <AlertTriangle className="w-5 h-5 text-amber-400" />,
-            info: <Info className="w-5 h-5 text-indigo-400" />
+            warning: <AlertTriangle className="w-5 h-5 text-orange-400" />,
+            info: <Info className="w-5 h-5 text-teal-400" />
           };
           
           const bgMap = {
-            success: 'bg-emerald-950/90 border-emerald-500/20 text-emerald-100',
-            error: 'bg-rose-950/90 border-rose-500/20 text-rose-100',
-            warning: 'bg-amber-950/90 border-amber-500/20 text-amber-100',
-            info: 'bg-slate-900/95 border-slate-800 text-slate-100'
+            success: 'bg-[#0B2A22]/95 border-emerald-500/30 text-emerald-100',
+            error: 'bg-rose-950/90 border-rose-500/30 text-rose-100',
+            warning: 'bg-orange-950/90 border-orange-500/30 text-orange-100',
+            info: 'bg-[#071C17]/95 border-teal-500/30 text-teal-100'
           };
 
           return (

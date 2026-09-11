@@ -71,13 +71,13 @@ export const Signup: React.FC = () => {
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               placeholder="Alex Sparker"
-              className="w-full pl-9 pr-4 py-2.5 bg-slate-900 border border-slate-800 focus:border-indigo-500 rounded-lg text-sm text-slate-100 placeholder-slate-650 focus:outline-none transition-all"
+              className="w-full pl-9 pr-4 py-2.5 bg-[#071C17]/90 border border-[#143D32] focus:border-emerald-500 focus:ring-1 focus:ring-teal-500 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none transition-all"
             />
           </div>
         </div>
 
         <div>
-          <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Email Address</label>
+          <label className="block text-xs font-semibold text-emerald-200/80 uppercase tracking-wider mb-2">Email Address</label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
               <Mail className="w-4 h-4" />
@@ -88,13 +88,13 @@ export const Signup: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@university.edu"
-              className="w-full pl-9 pr-4 py-2.5 bg-slate-900 border border-slate-800 focus:border-indigo-500 rounded-lg text-sm text-slate-100 placeholder-slate-650 focus:outline-none transition-all"
+              className="w-full pl-9 pr-4 py-2.5 bg-[#071C17]/90 border border-[#143D32] focus:border-emerald-500 focus:ring-1 focus:ring-teal-500 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none transition-all"
             />
           </div>
         </div>
 
         <div>
-          <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Password</label>
+          <label className="block text-xs font-semibold text-emerald-200/80 uppercase tracking-wider mb-2">Password</label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
               <Lock className="w-4 h-4" />
@@ -105,7 +105,7 @@ export const Signup: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              className="w-full pl-9 pr-10 py-2.5 bg-slate-900 border border-slate-800 focus:border-indigo-500 rounded-lg text-sm text-slate-100 placeholder-slate-650 focus:outline-none transition-all"
+              className="w-full pl-9 pr-10 py-2.5 bg-[#071C17]/90 border border-[#143D32] focus:border-emerald-500 focus:ring-1 focus:ring-teal-500 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none transition-all"
             />
             <button
               type="button"
@@ -127,7 +127,7 @@ export const Signup: React.FC = () => {
         <button
           type="submit"
           disabled={loading}
-          className="w-full flex items-center justify-center gap-2 bg-indigo-650 hover:bg-indigo-700 text-white font-semibold py-2.5 rounded-lg text-sm transition-all shadow-lg shadow-indigo-600/20 disabled:opacity-50 cursor-pointer"
+          className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#064E3B] to-[#14B8A6] hover:from-[#065F46] hover:to-[#0D9488] text-white font-semibold py-2.5 rounded-xl text-sm transition-all shadow-lg shadow-emerald-950/40 disabled:opacity-50 cursor-pointer"
         >
           {loading ? (
             <>
@@ -143,9 +143,9 @@ export const Signup: React.FC = () => {
         </button>
       </form>
 
-      <div className="text-center text-xs text-slate-400 border-t border-slate-900 pt-4">
+      <div className="text-center text-xs text-slate-400 border-t border-[#143D32] pt-4">
         Already have an account?{' '}
-        <Link to="/login" className="text-indigo-400 hover:text-indigo-300 font-semibold transition-colors">
+        <Link to="/login" className="text-teal-400 hover:text-teal-300 font-semibold transition-colors">
           Sign in
         </Link>
       </div>

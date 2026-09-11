@@ -228,8 +228,8 @@ export const SkillGap: React.FC = () => {
   return (
     <div className="space-y-8 max-w-5xl mx-auto text-xs leading-normal">
       <div>
-        <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-          <Compass className="w-5 h-5 text-indigo-500" />
+        <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+          <Compass className="w-5 h-5 text-emerald-500" />
           <span>Skill Gap & Career Readiness Audit</span>
         </h2>
         <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -246,10 +246,10 @@ export const SkillGap: React.FC = () => {
 
       {/* Input panel */}
       <div className="glass-card p-6 md:p-8 rounded-2xl space-y-6">
-        <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-2">Target Career Parameters</h3>
+        <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-[#143D32] pb-2">Target Career Parameters</h3>
 
         <div>
-          <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Target Job Role</label>
+          <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Target Job Role</label>
           <input
             type="text"
             value={targetRole}
@@ -283,7 +283,7 @@ export const SkillGap: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Job Description Text</label>
+          <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Job Description Text</label>
           <textarea
             rows={5}
             value={jobDescription}
@@ -296,7 +296,7 @@ export const SkillGap: React.FC = () => {
         <button
           onClick={handleAnalyze}
           disabled={loading || uploading}
-          className="w-full flex items-center justify-center gap-2 bg-indigo-650 hover:bg-indigo-755 text-white font-semibold py-3 rounded-xl text-xs transition-all shadow-lg cursor-pointer disabled:opacity-50"
+          className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-3 rounded-xl text-xs transition-all shadow-lg shadow-emerald-950/20 cursor-pointer disabled:opacity-50"
         >
           {loading ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Compass className="w-4 h-4" />}
           <span>{loading ? 'Auditing Skill Gaps...' : 'Perform Skill Gap Audit'}</span>
@@ -307,27 +307,27 @@ export const SkillGap: React.FC = () => {
       {result && (
         <div ref={resultsRef} className="space-y-8 animate-fade-in">
           {/* Match Score header */}
-          <div className="glass-card p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-l-4 border-l-indigo-500">
+          <div className="glass-card p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-l-4 border-l-emerald-500">
             <div>
-              <span className="text-[10px] uppercase font-bold text-slate-450">Career Readiness Score</span>
-              <p className="text-3xl font-black text-slate-100 mt-1">{result.matchPercentage}%</p>
+              <span className="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400">Career Readiness Score</span>
+              <p className="text-3xl font-black text-slate-900 dark:text-slate-100 mt-1">{result.matchPercentage}%</p>
             </div>
-            <div className="flex bg-slate-900/60 p-1 rounded-xl gap-1 text-[11px]">
+            <div className="flex bg-slate-100 dark:bg-[#071C17] border border-slate-200 dark:border-[#143D32] p-1 rounded-xl gap-1 text-[11px]">
               <button
                 onClick={() => setActiveSubTab('gaps')}
-                className={`px-3 py-1.5 font-semibold rounded-lg ${activeSubTab === 'gaps' ? 'bg-indigo-650 text-white' : 'text-slate-400'}`}
+                className={`px-3 py-1.5 font-semibold rounded-lg cursor-pointer transition-all ${activeSubTab === 'gaps' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'}`}
               >
                 Gaps Breakdown
               </button>
               <button
                 onClick={() => setActiveSubTab('roadmap')}
-                className={`px-3 py-1.5 font-semibold rounded-lg ${activeSubTab === 'roadmap' ? 'bg-indigo-650 text-white' : 'text-slate-400'}`}
+                className={`px-3 py-1.5 font-semibold rounded-lg cursor-pointer transition-all ${activeSubTab === 'roadmap' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'}`}
               >
                 Weekly Roadmap
               </button>
               <button
                 onClick={() => setActiveSubTab('resources')}
-                className={`px-3 py-1.5 font-semibold rounded-lg ${activeSubTab === 'resources' ? 'bg-indigo-650 text-white' : 'text-slate-400'}`}
+                className={`px-3 py-1.5 font-semibold rounded-lg cursor-pointer transition-all ${activeSubTab === 'resources' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'}`}
               >
                 Learning Resources
               </button>
@@ -338,12 +338,12 @@ export const SkillGap: React.FC = () => {
           {activeSubTab === 'gaps' && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="glass-card p-6 rounded-2xl space-y-4">
-                <h4 className="font-bold text-emerald-400 text-xs flex items-center gap-1.5">
+                <h4 className="font-bold text-emerald-600 dark:text-emerald-400 text-xs flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4" /> Matched Skills ({result.matchedSkills.length})
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {result.matchedSkills.map((s, idx) => (
-                    <span key={idx} className="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-semibold">
+                    <span key={idx} className="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 text-[10px] font-semibold">
                       {s}
                     </span>
                   ))}
@@ -351,12 +351,12 @@ export const SkillGap: React.FC = () => {
               </div>
 
               <div className="glass-card p-6 rounded-2xl space-y-4">
-                <h4 className="font-bold text-red-400 text-xs flex items-center gap-1.5">
+                <h4 className="font-bold text-orange-500 dark:text-orange-400 text-xs flex items-center gap-1.5">
                   <ShieldAlert className="w-4 h-4" /> Missing Priority Gaps ({result.missingSkills.length})
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {result.missingSkills.map((s, idx) => (
-                    <span key={idx} className="px-2.5 py-1 rounded bg-red-500/10 text-red-400 border border-red-500/20 text-[10px] font-semibold">
+                    <span key={idx} className="px-2.5 py-1 rounded bg-orange-500/10 text-orange-600 dark:text-orange-300 border border-orange-500/25 text-[10px] font-semibold">
                       {s}
                     </span>
                   ))}
@@ -369,13 +369,13 @@ export const SkillGap: React.FC = () => {
           {activeSubTab === 'roadmap' && (
             <div className="space-y-4">
               {result.weeklyRoadmap.map((item, idx) => (
-                <div key={idx} className="glass-card p-6 rounded-2xl space-y-2 border dark:border-slate-800">
-                  <div className="flex justify-between items-center text-xs font-bold text-indigo-400">
+                <div key={idx} className="glass-card p-6 rounded-2xl space-y-2 border border-slate-200 dark:border-[#143D32]">
+                  <div className="flex justify-between items-center text-xs font-bold text-emerald-600 dark:text-emerald-400">
                     <span>{item.week}</span>
-                    <span className="text-[10px] bg-indigo-500/10 px-2 py-0.5 rounded">Deliverables</span>
+                    <span className="text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded font-semibold">Deliverables</span>
                   </div>
-                  <p className="font-semibold text-slate-200">{item.topics.join(', ')}</p>
-                  <ul className="list-disc pl-4 text-slate-400 text-[11px] space-y-1">
+                  <p className="font-semibold text-slate-800 dark:text-slate-200">{item.topics.join(', ')}</p>
+                  <ul className="list-disc pl-4 text-slate-600 dark:text-slate-400 text-[11px] space-y-1">
                     {item.tasks.map((t, tidx) => <li key={tidx}>{t}</li>)}
                   </ul>
                 </div>
@@ -387,13 +387,13 @@ export const SkillGap: React.FC = () => {
           {activeSubTab === 'resources' && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {result.courseRecommendations.map((c, idx) => (
-                <div key={idx} className="glass-card p-5 rounded-2xl space-y-3 border dark:border-slate-800">
+                <div key={idx} className="glass-card p-5 rounded-2xl space-y-3 border border-slate-200 dark:border-[#143D32]">
                   <div className="flex justify-between items-center">
-                    <span className="font-bold text-indigo-400">{c.skill}</span>
-                    <span className="text-[9px] bg-slate-900 px-2 py-0.5 rounded text-slate-400">{c.platformName}</span>
+                    <span className="font-bold text-teal-600 dark:text-teal-400">{c.skill}</span>
+                    <span className="text-[9px] bg-slate-100 dark:bg-[#071C17] border border-slate-200 dark:border-[#143D32] px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">{c.platformName}</span>
                   </div>
-                  <div className="space-y-1 text-[11px] text-slate-300">
-                    <p>📖 Documentation: <a href={c.docsLink} target="_blank" rel="noreferrer" className="underline text-indigo-400">{c.docsName}</a></p>
+                  <div className="space-y-1 text-[11px] text-slate-700 dark:text-slate-300">
+                    <p>📖 Documentation: <a href={c.docsLink} target="_blank" rel="noreferrer" className="underline text-teal-600 dark:text-teal-400 hover:text-emerald-500">{c.docsName}</a></p>
                     <p>📚 Recommended Book: {c.bookTitle}</p>
                     <p>🎥 Search Tutorial: "{c.youtubeSearch}"</p>
                   </div>

@@ -295,7 +295,7 @@ export const VideoInterview: React.FC = () => {
 
   return (
     <div className="space-y-6 max-w-5xl mx-auto text-xs leading-normal">
-      <div className="flex justify-between items-center border-b dark:border-slate-800 pb-4">
+      <div className="flex justify-between items-center border-b dark:border-[#143D32] pb-4">
         <button
           onClick={() => navigate('/interview')}
           className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 transition-all font-semibold"
@@ -318,7 +318,7 @@ export const VideoInterview: React.FC = () => {
       {/* IDLE VIEW */}
       {sessionState === 'idle' && (
         <div className="glass-card p-12 rounded-2xl text-center space-y-6 max-w-lg mx-auto py-16">
-          <div className="p-4 bg-indigo-500/10 rounded-full text-indigo-500 w-16 h-16 mx-auto flex items-center justify-center animate-pulse">
+          <div className="p-4 bg-emerald-500/10 rounded-full text-emerald-500 w-16 h-16 mx-auto flex items-center justify-center animate-pulse">
             <Camera className="w-8 h-8" />
           </div>
           <div className="space-y-2">
@@ -330,7 +330,7 @@ export const VideoInterview: React.FC = () => {
           </div>
           <button
             onClick={handleStartSession}
-            className="px-6 py-3 bg-indigo-650 hover:bg-indigo-755 text-white rounded-xl text-sm font-semibold transition-all shadow-lg flex items-center gap-1.5 mx-auto cursor-pointer"
+            className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-xl text-sm font-semibold transition-all shadow-lg shadow-emerald-500/20 flex items-center gap-1.5 mx-auto cursor-pointer"
           >
             <Play className="w-4 h-4" />
             <span>Start Video Interview</span>
@@ -342,7 +342,7 @@ export const VideoInterview: React.FC = () => {
       {sessionState === 'recording' && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-8 space-y-4">
-            <div className="relative aspect-video rounded-2xl bg-black overflow-hidden border border-slate-800 shadow-xl flex items-center justify-center">
+            <div className="relative aspect-video rounded-2xl bg-black overflow-hidden border border-slate-800 dark:border-[#143D32] shadow-xl flex items-center justify-center">
               <video
                 ref={videoRef}
                 autoPlay
@@ -358,12 +358,12 @@ export const VideoInterview: React.FC = () => {
                 </div>
               ) : (
                 <>
-                  <div className="absolute top-4 left-4 px-3 py-1 bg-indigo-650/80 backdrop-blur text-white text-[9px] font-bold uppercase rounded-full tracking-wider animate-pulse flex items-center gap-1.5">
+                  <div className="absolute top-4 left-4 px-3 py-1 bg-emerald-650/80 backdrop-blur text-white text-[9px] font-bold uppercase rounded-full tracking-wider animate-pulse flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
                     <span>Vision Tracker Active</span>
                   </div>
 
-                  <div className="absolute bottom-4 right-4 bg-slate-950/80 backdrop-blur p-3.5 rounded-xl border border-slate-800 text-[9px] font-mono text-slate-300 space-y-2 min-w-[130px]">
+                  <div className="absolute bottom-4 right-4 bg-[#071C17]/90 backdrop-blur p-3.5 rounded-xl border border-[#143D32] text-[9px] font-mono text-slate-300 space-y-2 min-w-[130px]">
                     <div className="space-y-1">
                       <div className="flex justify-between">
                         <span>EYE CONTACT</span>
@@ -380,7 +380,7 @@ export const VideoInterview: React.FC = () => {
                         <span>{livePosture}%</span>
                       </div>
                       <div className="w-full h-1 bg-slate-800 rounded-full overflow-hidden">
-                        <div className="h-full bg-indigo-500" style={{ width: `${livePosture}%` }} />
+                        <div className="h-full bg-teal-500" style={{ width: `${livePosture}%` }} />
                       </div>
                     </div>
                   </div>
@@ -389,11 +389,11 @@ export const VideoInterview: React.FC = () => {
             </div>
 
             {/* Question Card & Controls */}
-            <div className="glass-card p-6 rounded-2xl space-y-3">
-              <div className="flex justify-between items-center text-[10px] font-bold text-indigo-500 uppercase tracking-widest">
+            <div className="glass-card p-6 rounded-2xl space-y-3 border border-slate-200 dark:border-[#143D32]">
+              <div className="flex justify-between items-center text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest">
                 <span>Question {currentQuestionIdx + 1} of {questions.length}</span>
                 <div className="flex items-center gap-1 font-sans text-slate-700 dark:text-slate-300 text-xs">
-                  <Clock className="w-4 h-4 text-indigo-500" />
+                  <Clock className="w-4 h-4 text-emerald-500" />
                   <span>Timer: {timeLeft}s</span>
                 </div>
               </div>
@@ -406,7 +406,7 @@ export const VideoInterview: React.FC = () => {
                   onClick={handlePrevQuestion}
                   disabled={currentQuestionIdx === 0}
                   className={`px-3 py-1.5 border rounded-lg text-xs font-semibold ${
-                    currentQuestionIdx === 0 ? 'opacity-40 cursor-not-allowed' : 'hover:bg-slate-100 dark:hover:bg-slate-800'
+                    currentQuestionIdx === 0 ? 'opacity-40 cursor-not-allowed' : 'hover:bg-slate-100 dark:hover:bg-[#0B2A22] border-slate-300 dark:border-[#143D32]'
                   }`}
                 >
                   Previous Question
@@ -414,7 +414,7 @@ export const VideoInterview: React.FC = () => {
 
                 <button
                   onClick={handleNextQuestion}
-                  className="flex items-center gap-1.5 bg-indigo-650 hover:bg-indigo-755 text-white font-semibold py-2 px-4.5 rounded-xl text-xs transition-all shadow-md cursor-pointer"
+                  className="flex items-center gap-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-2 px-4.5 rounded-xl text-xs transition-all shadow-md shadow-emerald-500/20 cursor-pointer"
                 >
                   <span>{currentQuestionIdx < questions.length - 1 ? 'Next Question' : 'End & Generate Report'}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -423,9 +423,9 @@ export const VideoInterview: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-4 glass-card p-6 rounded-2xl flex flex-col gap-4 text-xs">
+          <div className="lg:col-span-4 glass-card p-6 rounded-2xl flex flex-col gap-4 text-xs border border-slate-200 dark:border-[#143D32]">
             <h4 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
-              <Keyboard className="w-4 h-4 text-indigo-500" /> 
+              <Keyboard className="w-4 h-4 text-emerald-500" /> 
               Response Transcript
             </h4>
             <p className="text-[10px] text-slate-500 leading-relaxed">
@@ -444,7 +444,7 @@ export const VideoInterview: React.FC = () => {
       {/* COMPLETED REPORT VIEW */}
       {sessionState === 'completed' && feedback && (
         <div className="space-y-6">
-          <div className="glass-card p-6 rounded-2xl flex items-center justify-between border-l-4 border-l-indigo-500">
+          <div className="glass-card p-6 rounded-2xl flex items-center justify-between border-l-4 border-l-emerald-500">
             <div>
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Vision Coach Scorecard</span>
               <p className="text-3xl font-black text-slate-800 dark:text-slate-100 mt-1">{feedback.score}%</p>
@@ -456,13 +456,13 @@ export const VideoInterview: React.FC = () => {
                   setFeedback(null);
                   setSessionState('idle');
                 }}
-                className="px-4 py-2 border border-slate-300 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-xl text-xs font-semibold"
+                className="px-4 py-2 border border-slate-300 dark:border-[#143D32] hover:bg-slate-100 dark:hover:bg-[#0B2A22] rounded-xl text-xs font-semibold cursor-pointer"
               >
                 Retry Session
               </button>
               <button
                 onClick={() => navigate('/interview')}
-                className="px-4 py-2 bg-indigo-650 hover:bg-indigo-755 text-white rounded-xl text-xs font-semibold transition-all shadow-md"
+                className="px-4 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-xl text-xs font-semibold transition-all shadow-md shadow-emerald-500/20 cursor-pointer"
               >
                 Return to Dashboard
               </button>
@@ -470,38 +470,38 @@ export const VideoInterview: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 text-center">
-            <div className="p-3.5 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800">
+            <div className="p-3.5 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
               <p className="text-[9px] uppercase font-bold text-slate-400">Confidence</p>
               <p className="text-lg font-black text-slate-800 dark:text-slate-100 mt-1">{feedback.confidenceScore}%</p>
             </div>
-            <div className="p-3.5 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800">
+            <div className="p-3.5 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
               <p className="text-[9px] uppercase font-bold text-slate-400">Eye Contact</p>
               <p className="text-lg font-black text-slate-800 dark:text-slate-100 mt-1">{feedback.eyeContactScore}%</p>
             </div>
-            <div className="p-3.5 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800">
+            <div className="p-3.5 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
               <p className="text-[9px] uppercase font-bold text-slate-400">Communication</p>
               <p className="text-lg font-black text-slate-800 dark:text-slate-100 mt-1">{feedback.communicationScore}%</p>
             </div>
-            <div className="p-3.5 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800">
+            <div className="p-3.5 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
               <p className="text-[9px] uppercase font-bold text-slate-400">Professionalism</p>
               <p className="text-lg font-black text-slate-800 dark:text-slate-100 mt-1">{feedback.professionalismScore}%</p>
             </div>
-            <div className="p-3.5 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800">
+            <div className="p-3.5 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
               <p className="text-[9px] uppercase font-bold text-slate-400">Engagement</p>
               <p className="text-lg font-black text-slate-800 dark:text-slate-100 mt-1">{feedback.engagementScore}%</p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs">
-            <div className="glass-card p-5 rounded-2xl space-y-2">
+            <div className="glass-card p-5 rounded-2xl space-y-2 border border-slate-200 dark:border-[#143D32]">
               <span className="text-[9px] font-bold text-slate-400 uppercase">Posture Coaching</span>
               <p className="text-slate-700 dark:text-slate-300 leading-relaxed">{feedback.postureFeedback}</p>
             </div>
-            <div className="glass-card p-5 rounded-2xl space-y-2">
+            <div className="glass-card p-5 rounded-2xl space-y-2 border border-slate-200 dark:border-[#143D32]">
               <span className="text-[9px] font-bold text-slate-400 uppercase">Eye Alignment</span>
               <p className="text-slate-700 dark:text-slate-300 leading-relaxed">{feedback.eyeContactFeedback}</p>
             </div>
-            <div className="glass-card p-5 rounded-2xl space-y-2">
+            <div className="glass-card p-5 rounded-2xl space-y-2 border border-slate-200 dark:border-[#143D32]">
               <span className="text-[9px] font-bold text-slate-400 uppercase">Verbal Structure</span>
               <p className="text-slate-700 dark:text-slate-300 leading-relaxed">{feedback.verbalFeedback}</p>
             </div>

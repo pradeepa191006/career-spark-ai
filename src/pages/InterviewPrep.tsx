@@ -145,7 +145,7 @@ export const InterviewPrep: React.FC = () => {
       {/* Top Title Controls */}
       <div>
         <h2 className="text-xl font-bold text-slate-850 dark:text-slate-100 flex items-center gap-2">
-          <Mic className="w-5 h-5 text-indigo-500" />
+          <Mic className="w-5 h-5 text-emerald-500" />
           <span>AI Interview Preparation Platform</span>
         </h2>
         <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -154,11 +154,11 @@ export const InterviewPrep: React.FC = () => {
       </div>
 
       {/* Navigation sub-tabs */}
-      <div className="flex bg-slate-900/60 border border-slate-855 p-1 rounded-xl gap-0.5">
+      <div className="flex bg-slate-100 dark:bg-[#0B2A22]/80 border border-slate-200 dark:border-[#143D32] p-1 rounded-xl gap-1 text-xs">
         <button
           onClick={() => { setActiveTab('dashboard'); setSelectedSession(null); }}
-          className={`flex-1 py-2 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
-            activeTab === 'dashboard' ? 'bg-indigo-650 text-white' : 'text-slate-455 hover:text-slate-200'
+          className={`flex-1 py-2 font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
+            activeTab === 'dashboard' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-500/20' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
           }`}
         >
           <LayoutDashboard className="w-4 h-4" />
@@ -167,8 +167,8 @@ export const InterviewPrep: React.FC = () => {
 
         <button
           onClick={() => { setActiveTab('setup'); setSelectedSession(null); }}
-          className={`flex-1 py-2 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
-            activeTab === 'setup' ? 'bg-indigo-650 text-white' : 'text-slate-455 hover:text-slate-200'
+          className={`flex-1 py-2 font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
+            activeTab === 'setup' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-500/20' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
           }`}
         >
           <Settings className="w-4 h-4" />
@@ -177,8 +177,8 @@ export const InterviewPrep: React.FC = () => {
 
         <button
           onClick={() => { setActiveTab('history'); setSelectedSession(null); }}
-          className={`flex-1 py-2 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
-            activeTab === 'history' ? 'bg-indigo-650 text-white' : 'text-slate-455 hover:text-slate-200'
+          className={`flex-1 py-2 font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
+            activeTab === 'history' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-500/20' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
           }`}
         >
           <History className="w-4 h-4" />
@@ -191,29 +191,29 @@ export const InterviewPrep: React.FC = () => {
         <div className="space-y-6 animate-fade-in">
           {/* Dashboard Summary Cards */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
-            <div className="glass-card p-4 rounded-xl border dark:border-slate-855">
+            <div className="glass-card p-4 rounded-xl border border-slate-200 dark:border-[#143D32]">
               <p className="text-[10px] font-bold text-slate-450 uppercase">Total Interviews</p>
-              <p className="text-2xl font-black mt-2 text-slate-100">{totalMockInterviews}</p>
+              <p className="text-2xl font-black mt-2 text-slate-800 dark:text-slate-100">{totalMockInterviews}</p>
             </div>
-            <div className="glass-card p-4 rounded-xl border dark:border-slate-855">
+            <div className="glass-card p-4 rounded-xl border border-slate-200 dark:border-[#143D32]">
               <p className="text-[10px] font-bold text-slate-450 uppercase">Best Confidence</p>
-              <p className="text-2xl font-black mt-2 text-indigo-400">{bestConfidence}%</p>
+              <p className="text-2xl font-black mt-2 text-teal-500">{bestConfidence}%</p>
             </div>
-            <div className="glass-card p-4 rounded-xl border dark:border-slate-855">
+            <div className="glass-card p-4 rounded-xl border border-slate-200 dark:border-[#143D32]">
               <p className="text-[10px] font-bold text-slate-450 uppercase">Best Communication</p>
-              <p className="text-2xl font-black mt-2 text-emerald-400">{bestCommunication}%</p>
+              <p className="text-2xl font-black mt-2 text-emerald-500">{bestCommunication}%</p>
             </div>
-            <div className="glass-card p-4 rounded-xl border dark:border-slate-855">
+            <div className="glass-card p-4 rounded-xl border border-slate-200 dark:border-[#143D32]">
               <p className="text-[10px] font-bold text-slate-450 uppercase">Avg Technical</p>
-              <p className="text-2xl font-black mt-2 text-cyan-400">{avgTechnical}%</p>
+              <p className="text-2xl font-black mt-2 text-teal-400">{avgTechnical}%</p>
             </div>
-            <div className="glass-card p-4 rounded-xl border dark:border-slate-855">
+            <div className="glass-card p-4 rounded-xl border border-slate-200 dark:border-[#143D32]">
               <p className="text-[10px] font-bold text-slate-450 uppercase">Avg HR Score</p>
-              <p className="text-2xl font-black mt-2 text-amber-400">{avgHR}%</p>
+              <p className="text-2xl font-black mt-2 text-amber-500">{avgHR}%</p>
             </div>
-            <div className="glass-card p-4 rounded-xl border dark:border-slate-855 bg-indigo-500/5">
-              <p className="text-[10px] font-bold text-indigo-400 uppercase">Readiness Rating</p>
-              <p className="text-2xl font-black mt-2 text-indigo-300">{readinessScore}%</p>
+            <div className="glass-card p-4 rounded-xl border border-emerald-500/30 bg-emerald-500/10 dark:bg-[#0B2A22]">
+              <p className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase">Readiness Rating</p>
+              <p className="text-2xl font-black mt-2 text-emerald-600 dark:text-emerald-300">{readinessScore}%</p>
             </div>
           </div>
 
@@ -222,27 +222,27 @@ export const InterviewPrep: React.FC = () => {
             <div className="lg:col-span-8 space-y-6">
               {/* Custom SVG improvement progress chart */}
               <div className="glass-card p-6 rounded-2xl space-y-4">
-                <div className="flex justify-between items-center border-b dark:border-slate-800 pb-2">
+                <div className="flex justify-between items-center border-b dark:border-[#143D32] pb-2">
                   <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Improvement Progress Trend</h4>
-                  <span className="text-[10px] font-bold text-indigo-400">Readiness target: 90%</span>
+                  <span className="text-[10px] font-bold text-emerald-500">Readiness target: 90%</span>
                 </div>
                 <div className="h-36 flex items-end">
                   <svg className="w-full h-full" viewBox="0 0 500 120">
-                    <line x1="0" y1="30" x2="500" y2="30" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
-                    <line x1="0" y1="60" x2="500" y2="60" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
-                    <line x1="0" y1="90" x2="500" y2="90" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+                    <line x1="0" y1="30" x2="500" y2="30" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+                    <line x1="0" y1="60" x2="500" y2="60" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+                    <line x1="0" y1="90" x2="500" y2="90" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
                     <polyline
                       fill="none"
-                      stroke="#6366f1"
+                      stroke="#10b981"
                       strokeWidth="3.5"
                       points="20,100 100,92 180,80 260,68 340,50 420,38"
                     />
-                    <circle cx="20" cy="100" r="4.5" fill="#6366f1" />
-                    <circle cx="100" cy="92" r="4.5" fill="#6366f1" />
-                    <circle cx="180" cy="80" r="4.5" fill="#6366f1" />
-                    <circle cx="260" cy="68" r="4.5" fill="#6366f1" />
-                    <circle cx="340" cy="50" r="4.5" fill="#6366f1" />
-                    <circle cx="420" cy="38" r="4.5" fill="#10b981" />
+                    <circle cx="20" cy="100" r="4.5" fill="#10b981" />
+                    <circle cx="100" cy="92" r="4.5" fill="#10b981" />
+                    <circle cx="180" cy="80" r="4.5" fill="#10b981" />
+                    <circle cx="260" cy="68" r="4.5" fill="#10b981" />
+                    <circle cx="340" cy="50" r="4.5" fill="#10b981" />
+                    <circle cx="420" cy="38" r="4.5" fill="#14b8a6" />
                     <text x="20" y="115" fill="gray" fontSize="8">Session 1</text>
                     <text x="100" y="115" fill="gray" fontSize="8">Session 2</text>
                     <text x="180" y="115" fill="gray" fontSize="8">Session 3</text>
@@ -255,20 +255,20 @@ export const InterviewPrep: React.FC = () => {
 
               {/* Recent mock session log list */}
               <div className="glass-card p-6 rounded-2xl space-y-4">
-                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-2">Recent Sessions</h3>
+                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-[#143D32] pb-2">Recent Sessions</h3>
                 <div className="space-y-3">
                   {history.slice(0, 3).map((item) => (
                     <div 
                       key={item.id} 
                       onClick={() => { setSelectedSession(item); setActiveTab('history'); }}
-                      className="p-4 bg-slate-900/40 hover:bg-slate-900/60 rounded-xl border dark:border-slate-855 border-slate-200 flex justify-between items-center text-xs cursor-pointer transition-all"
+                      className="p-4 bg-white dark:bg-[#071C17]/60 hover:bg-slate-50 dark:hover:bg-[#0B2A22]/50 rounded-xl border dark:border-[#143D32] border-slate-200 flex justify-between items-center text-xs cursor-pointer transition-all"
                     >
                       <div className="space-y-1">
-                        <p className="font-bold text-slate-200">{item.role}</p>
+                        <p className="font-bold text-slate-800 dark:text-slate-200">{item.role}</p>
                         <p className="text-[10px] text-slate-500 capitalize">{item.type} Mode • {item.difficulty} • {item.date}</p>
                       </div>
                       <div className="flex items-center gap-3">
-                        <span className="font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">{item.score}%</span>
+                        <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">{item.score}%</span>
                         <ChevronRight className="w-4 h-4 text-slate-500" />
                       </div>
                     </div>
@@ -280,38 +280,38 @@ export const InterviewPrep: React.FC = () => {
             {/* Right side: weak areas and upcoming practice goals */}
             <div className="lg:col-span-4 space-y-6 text-xs">
               <div className="glass-card p-5 rounded-2xl space-y-4">
-                <h4 className="text-xs font-bold text-red-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <AlertTriangle className="w-4 h-4" />
+                <h4 className="text-xs font-bold text-orange-500 uppercase tracking-wider flex items-center gap-1.5">
+                  <AlertTriangle className="w-4 h-4 text-orange-500" />
                   <span>Weak Coaching Areas</span>
                 </h4>
                 <ul className="space-y-2">
-                  <li className="flex gap-2 items-start text-slate-450 leading-relaxed">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0 mt-1.5" />
+                  <li className="flex gap-2 items-start text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0 mt-1.5" />
                     <span>Eye contact drops when detailing challenges.</span>
                   </li>
-                  <li className="flex gap-2 items-start text-slate-450 leading-relaxed">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0 mt-1.5" />
+                  <li className="flex gap-2 items-start text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0 mt-1.5" />
                     <span>Slightly high density of verbal filler "like" and "um".</span>
                   </li>
-                  <li className="flex gap-2 items-start text-slate-450 leading-relaxed">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0 mt-1.5" />
+                  <li className="flex gap-2 items-start text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0 mt-1.5" />
                     <span>Lacks quantitative metrics inside project descriptions.</span>
                   </li>
                 </ul>
               </div>
 
               <div className="glass-card p-5 rounded-2xl space-y-4">
-                <h4 className="text-xs font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-1.5">
+                <h4 className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
                   <Calendar className="w-4 h-4" />
                   <span>Practice Target Goals</span>
                 </h4>
                 <ul className="space-y-3">
-                  <li className="flex gap-2 items-center text-slate-450">
-                    <CheckSquare className="w-4.5 h-4.5 text-indigo-500" />
+                  <li className="flex gap-2 items-center text-slate-600 dark:text-slate-400">
+                    <CheckSquare className="w-4.5 h-4.5 text-emerald-500" />
                     <span>Complete 1 HR situational mock</span>
                   </li>
-                  <li className="flex gap-2 items-center text-slate-450">
-                    <CheckSquare className="w-4.5 h-4.5 text-indigo-500" />
+                  <li className="flex gap-2 items-center text-slate-600 dark:text-slate-400">
+                    <CheckSquare className="w-4.5 h-4.5 text-emerald-500" />
                     <span>Practice webcam posture evaluations</span>
                   </li>
                 </ul>
@@ -326,7 +326,7 @@ export const InterviewPrep: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start animate-fade-in">
           {/* Main configuration forms */}
           <div className="lg:col-span-8 glass-card p-6 rounded-2xl space-y-6">
-            <h3 className="text-xs font-bold text-slate-455 uppercase tracking-wider border-b dark:border-slate-800 pb-3">Session Parameters</h3>
+            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-[#143D32] pb-3">Session Parameters</h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
@@ -341,14 +341,14 @@ export const InterviewPrep: React.FC = () => {
               
               <div>
                 <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Difficulty Level</label>
-                <div className="flex bg-slate-900/60 border border-slate-855 p-1 rounded-xl gap-0.5 text-xs">
+                <div className="flex bg-slate-100 dark:bg-[#071C17] border border-slate-200 dark:border-[#143D32] p-1 rounded-xl gap-0.5 text-xs">
                   {['Easy', 'Medium', 'Hard'].map((d) => (
                     <button
                       key={d}
                       type="button"
                       onClick={() => setDifficulty(d as any)}
                       className={`flex-1 py-1.5 font-semibold rounded-lg transition-all ${
-                        difficulty === d ? 'bg-indigo-650 text-white' : 'text-slate-455'
+                        difficulty === d ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-500/20' : 'text-slate-600 dark:text-slate-400'
                       }`}
                     >
                       {d}
@@ -408,8 +408,8 @@ export const InterviewPrep: React.FC = () => {
                     onClick={() => toggleCategory(cat)}
                     className={`p-2.5 rounded-xl border text-left font-semibold transition-all ${
                       categories.includes(cat)
-                        ? 'border-indigo-500 bg-indigo-500/5 text-slate-100'
-                        : 'border-slate-855 hover:border-slate-700 bg-transparent text-slate-455'
+                        ? 'border-emerald-500 bg-emerald-500/10 text-emerald-600 dark:text-emerald-300'
+                        : 'border-slate-200 dark:border-[#143D32] hover:border-emerald-500/30 bg-transparent text-slate-600 dark:text-slate-400'
                     }`}
                   >
                     {cat}
@@ -419,30 +419,30 @@ export const InterviewPrep: React.FC = () => {
             </div>
 
             {/* Media device selectors */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t dark:border-slate-850">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t dark:border-[#143D32]">
               <div className="flex justify-between items-center text-xs">
                 <div>
-                  <span className="font-semibold text-slate-350">Configure Microphone</span>
-                  <p className="text-[10px] text-slate-550">Utilize voice synthesis recorders</p>
+                  <span className="font-semibold text-slate-700 dark:text-slate-300">Configure Microphone</span>
+                  <p className="text-[10px] text-slate-500">Utilize voice synthesis recorders</p>
                 </div>
                 <input
                   type="checkbox"
                   checked={micEnabled}
                   onChange={(e) => setMicEnabled(e.target.checked)}
-                  className="rounded accent-indigo-500 w-4 h-4"
+                  className="rounded accent-emerald-500 w-4 h-4"
                 />
               </div>
 
               <div className="flex justify-between items-center text-xs">
                 <div>
-                  <span className="font-semibold text-slate-350">Configure Camera</span>
-                  <p className="text-[10px] text-slate-550">Utilize vision posture trackers</p>
+                  <span className="font-semibold text-slate-700 dark:text-slate-300">Configure Camera</span>
+                  <p className="text-[10px] text-slate-500">Utilize vision posture trackers</p>
                 </div>
                 <input
                   type="checkbox"
                   checked={cameraEnabled}
                   onChange={(e) => setCameraEnabled(e.target.checked)}
-                  className="rounded accent-indigo-500 w-4 h-4"
+                  className="rounded accent-emerald-500 w-4 h-4"
                 />
               </div>
             </div>
@@ -451,7 +451,7 @@ export const InterviewPrep: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
               <button
                 onClick={() => handleStartSession('voice')}
-                className="py-3 bg-indigo-650 hover:bg-indigo-755 text-white font-semibold rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all shadow-lg"
+                className="py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all shadow-lg shadow-emerald-500/20 cursor-pointer"
               >
                 <Mic className="w-4 h-4" />
                 <span>Launch Voice Mock</span>
@@ -459,7 +459,7 @@ export const InterviewPrep: React.FC = () => {
 
               <button
                 onClick={() => handleStartSession('video')}
-                className="py-3 border border-indigo-500 hover:bg-indigo-500/5 text-indigo-400 font-semibold rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all"
+                className="py-3 border border-teal-500 hover:bg-teal-500/10 text-teal-600 dark:text-teal-400 font-semibold rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer"
               >
                 <Video className="w-4 h-4" />
                 <span>Launch Camera Mock</span>
@@ -469,8 +469,8 @@ export const InterviewPrep: React.FC = () => {
 
           {/* Right info panel help */}
           <div className="lg:col-span-4 glass-card p-6 rounded-2xl space-y-4 self-start text-xs text-slate-500">
-            <h4 className="font-bold text-slate-350 flex items-center gap-1.5 border-b dark:border-slate-800 pb-2">
-              <HelpCircle className="w-4 h-4 text-indigo-500" />
+            <h4 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5 border-b dark:border-[#143D32] pb-2">
+              <HelpCircle className="w-4 h-4 text-emerald-500" />
               <span>SaaS Coaching Help</span>
             </h4>
             <p className="leading-relaxed">
@@ -487,7 +487,7 @@ export const InterviewPrep: React.FC = () => {
           {/* History selection column: 4 cols */}
           <div className="lg:col-span-4 space-y-4">
             <div className="glass-card p-5 rounded-2xl space-y-4">
-              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-2">Mock Sessions List</h3>
+              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-[#143D32] pb-2">Mock Sessions List</h3>
               
               {history.length ? (
                 <div className="space-y-2">
@@ -497,19 +497,19 @@ export const InterviewPrep: React.FC = () => {
                       onClick={() => setSelectedSession(item)}
                       className={`p-3 rounded-xl border transition-all text-xs cursor-pointer flex justify-between items-center ${
                         selectedSession?.id === item.id 
-                          ? 'border-indigo-500 bg-indigo-500/5' 
-                          : 'border-slate-855 hover:border-slate-700 bg-transparent'
+                          ? 'border-emerald-500 bg-emerald-500/10 dark:bg-emerald-500/10' 
+                          : 'border-slate-200 dark:border-[#143D32] hover:border-emerald-500/30 bg-transparent'
                       }`}
                     >
                       <div className="space-y-0.5 min-w-0 flex-1 pr-2">
-                        <p className="font-bold text-slate-200 truncate">{item.role}</p>
+                        <p className="font-bold text-slate-800 dark:text-slate-200 truncate">{item.role}</p>
                         <p className="text-[9px] text-slate-500">{item.date} • {item.type}</p>
                       </div>
                       <div className="flex items-center gap-2 shrink-0">
-                        <span className="font-mono font-bold text-indigo-400 bg-indigo-500/5 px-2 py-0.5 rounded">{item.score}%</span>
+                        <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">{item.score}%</span>
                         <button 
                           onClick={(e) => handleDeleteSession(item.id, e)}
-                          className="p-1 hover:text-red-500 text-slate-500 transition-all"
+                          className="p-1 hover:text-red-500 text-slate-500 transition-all cursor-pointer"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
                         </button>
@@ -528,61 +528,61 @@ export const InterviewPrep: React.FC = () => {
             {selectedSession ? (
               <div className="space-y-6">
                 {/* Score header */}
-                <div className="flex justify-between items-center bg-slate-900/60 border border-slate-855 p-4 rounded-xl">
+                <div className="flex justify-between items-center bg-white dark:bg-[#0B2A22]/80 border border-slate-200 dark:border-[#143D32] p-4 rounded-xl">
                   <div>
                     <span className="text-[9px] font-bold text-slate-450 uppercase tracking-widest">{selectedSession.type} feedback report</span>
-                    <h3 className="text-sm font-bold text-slate-200">{selectedSession.role} Mock</h3>
+                    <h3 className="text-sm font-bold text-slate-800 dark:text-slate-200">{selectedSession.role} Mock</h3>
                   </div>
                   <div className="flex items-center gap-2.5">
                     <button
                       onClick={handleDownloadPDF}
-                      className="p-2 border border-slate-800 hover:bg-slate-900 text-indigo-400 rounded-xl text-xs transition-all flex items-center gap-1.5"
+                      className="p-2 border border-slate-200 dark:border-[#143D32] hover:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-xl text-xs transition-all flex items-center gap-1.5 cursor-pointer"
                     >
                       <Download className="w-3.5 h-3.5" />
                       <span>Download Report</span>
                     </button>
-                    <span className="text-xl font-black text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded">{selectedSession.score}%</span>
+                    <span className="text-xl font-black text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded">{selectedSession.score}%</span>
                   </div>
                 </div>
 
                 {/* Report Content view */}
                 <div 
                   id="interview-report-view" 
-                  className="glass-card p-6 rounded-2xl space-y-6 text-xs text-slate-350 border dark:border-slate-800"
+                  className="glass-card p-6 rounded-2xl space-y-6 text-xs text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-[#143D32]"
                 >
-                  <div className="border-b dark:border-slate-850 pb-4">
-                    <h4 className="text-base font-extrabold text-slate-200">AI Performance scorecard</h4>
+                  <div className="border-b dark:border-[#143D32] pb-4">
+                    <h4 className="text-base font-extrabold text-slate-850 dark:text-slate-100">AI Performance scorecard</h4>
                     <p className="text-[10px] text-slate-500 mt-1">Generated: {selectedSession.date} • Type: {selectedSession.type}</p>
                   </div>
 
                   {/* Core Scores Matrix Grid */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-                    <div className="p-3 bg-slate-900/40 rounded-xl border dark:border-slate-850">
-                      <p className="text-[9px] uppercase font-bold text-slate-500">Confidence</p>
-                      <p className="text-lg font-black text-slate-200 mt-1">{selectedSession.confidenceScore}%</p>
+                    <div className="p-3 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
+                      <p className="text-[9px] uppercase font-bold text-slate-400">Confidence</p>
+                      <p className="text-lg font-black text-slate-800 dark:text-slate-100 mt-1">{selectedSession.confidenceScore}%</p>
                     </div>
-                    <div className="p-3 bg-slate-900/40 rounded-xl border dark:border-slate-850">
-                      <p className="text-[9px] uppercase font-bold text-slate-500">Communication</p>
-                      <p className="text-lg font-black text-slate-200 mt-1">{selectedSession.communicationScore}%</p>
+                    <div className="p-3 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
+                      <p className="text-[9px] uppercase font-bold text-slate-400">Communication</p>
+                      <p className="text-lg font-black text-slate-800 dark:text-slate-100 mt-1">{selectedSession.communicationScore}%</p>
                     </div>
-                    <div className="p-3 bg-slate-900/40 rounded-xl border dark:border-slate-850">
-                      <p className="text-[9px] uppercase font-bold text-slate-500">Fluency</p>
-                      <p className="text-lg font-black text-slate-200 mt-1">{selectedSession.fluencyScore}%</p>
+                    <div className="p-3 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
+                      <p className="text-[9px] uppercase font-bold text-slate-400">Fluency</p>
+                      <p className="text-lg font-black text-slate-800 dark:text-slate-100 mt-1">{selectedSession.fluencyScore}%</p>
                     </div>
-                    <div className="p-3 bg-slate-900/40 rounded-xl border dark:border-slate-850">
-                      <p className="text-[9px] uppercase font-bold text-slate-500">Grammar Index</p>
-                      <p className="text-lg font-black text-slate-200 mt-1">{selectedSession.grammarScore}%</p>
+                    <div className="p-3 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
+                      <p className="text-[9px] uppercase font-bold text-slate-400">Grammar Index</p>
+                      <p className="text-lg font-black text-slate-800 dark:text-slate-100 mt-1">{selectedSession.grammarScore}%</p>
                     </div>
                   </div>
 
                   {/* Speech particulars */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-4 bg-slate-900/10 rounded-xl border dark:border-slate-850">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-4 bg-slate-50 dark:bg-[#071C17]/40 rounded-xl border border-slate-200 dark:border-[#143D32]">
                     <div>
-                      <p className="font-semibold text-slate-400">Vocabulary Level</p>
+                      <p className="font-semibold text-slate-700 dark:text-slate-300">Vocabulary Level</p>
                       <p className="text-[10px] text-slate-500 mt-1">Score: {selectedSession.vocabularyScore}% • Average: 75%</p>
                     </div>
                     <div>
-                      <p className="font-semibold text-slate-400">Speech Flow Characteristics</p>
+                      <p className="font-semibold text-slate-700 dark:text-slate-300">Speech Flow Characteristics</p>
                       <p className="text-[10px] text-slate-500 mt-1">Speaking Speed: {selectedSession.speakingSpeed} • Filler Words: {selectedSession.fillerWordCount}</p>
                     </div>
                   </div>
@@ -590,44 +590,44 @@ export const InterviewPrep: React.FC = () => {
                   {/* Video analysis specific details */}
                   {selectedSession.videoFeedback && (
                     <div className="space-y-3 pt-2">
-                      <h5 className="font-bold text-slate-300">Coaching Vision Cues Feedback</h5>
+                      <h5 className="font-bold text-slate-800 dark:text-slate-200">Coaching Vision Cues Feedback</h5>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[10px] leading-relaxed">
-                        <div className="p-3.5 bg-slate-900/40 rounded-xl border dark:border-slate-850">
-                          <p className="font-semibold text-indigo-400 uppercase text-[8px] mb-1">Posture Alignment</p>
-                          <p className="text-slate-350 italic">"{selectedSession.videoFeedback.posture}"</p>
+                        <div className="p-3.5 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
+                          <p className="font-semibold text-teal-600 dark:text-teal-400 uppercase text-[8px] mb-1">Posture Alignment</p>
+                          <p className="text-slate-600 dark:text-slate-400 italic">"{selectedSession.videoFeedback.posture}"</p>
                         </div>
-                        <div className="p-3.5 bg-slate-900/40 rounded-xl border dark:border-slate-850">
-                          <p className="font-semibold text-indigo-400 uppercase text-[8px] mb-1">Eye-Contact Track</p>
-                          <p className="text-slate-350 italic">"{selectedSession.videoFeedback.eyeContact}"</p>
+                        <div className="p-3.5 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
+                          <p className="font-semibold text-teal-600 dark:text-teal-400 uppercase text-[8px] mb-1">Eye-Contact Track</p>
+                          <p className="text-slate-600 dark:text-slate-400 italic">"{selectedSession.videoFeedback.eyeContact}"</p>
                         </div>
                       </div>
                     </div>
                   )}
 
                   {/* Strengths and Weaknesses */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t dark:border-slate-850">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t dark:border-[#143D32]">
                     <div>
-                      <span className="font-bold text-emerald-400 uppercase text-[10px]">Strengths</span>
-                      <ul className="list-disc pl-4 text-[10px] text-slate-500 mt-1.5 space-y-1">
+                      <span className="font-bold text-emerald-600 dark:text-emerald-400 uppercase text-[10px]">Strengths</span>
+                      <ul className="list-disc pl-4 text-[10px] text-slate-600 dark:text-slate-400 mt-1.5 space-y-1">
                         {selectedSession.strengths.map((s, idx) => <li key={idx}>{s}</li>)}
                       </ul>
                     </div>
                     <div>
-                      <span className="font-bold text-indigo-400 uppercase text-[10px]">Areas to Improve</span>
-                      <ul className="list-disc pl-4 text-[10px] text-slate-500 mt-1.5 space-y-1">
+                      <span className="font-bold text-orange-500 uppercase text-[10px]">Areas to Improve</span>
+                      <ul className="list-disc pl-4 text-[10px] text-slate-600 dark:text-slate-400 mt-1.5 space-y-1">
                         {selectedSession.improvements.map((i, idx) => <li key={idx}>{i}</li>)}
                       </ul>
                     </div>
                   </div>
 
                   {/* Question and answer log */}
-                  <div className="space-y-3 pt-4 border-t dark:border-slate-850">
-                    <h5 className="font-bold text-slate-300">Questions and Answers Log</h5>
+                  <div className="space-y-3 pt-4 border-t dark:border-[#143D32]">
+                    <h5 className="font-bold text-slate-800 dark:text-slate-200">Questions and Answers Log</h5>
                     <div className="space-y-4">
                       {selectedSession.questions.map((q, idx) => (
                         <div key={idx} className="space-y-1 text-[10px]">
-                          <p className="font-bold text-indigo-300">Q{idx + 1}: {q}</p>
-                          <p className="text-slate-500 italic bg-slate-900/20 p-2.5 rounded-lg">A: {selectedSession.answers[idx] || 'No verbal response recorded.'}</p>
+                          <p className="font-bold text-emerald-600 dark:text-emerald-400">Q{idx + 1}: {q}</p>
+                          <p className="text-slate-600 dark:text-slate-400 italic bg-slate-50 dark:bg-[#071C17]/60 border border-slate-200 dark:border-[#143D32] p-2.5 rounded-lg">A: {selectedSession.answers[idx] || 'No verbal response recorded.'}</p>
                         </div>
                       ))}
                     </div>
@@ -635,10 +635,10 @@ export const InterviewPrep: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <div className="glass-card p-20 rounded-2xl text-center border border-dashed dark:border-slate-800 border-slate-350 h-full flex flex-col items-center justify-center text-slate-500">
-                <History className="w-12 h-12 text-slate-655 dark:text-slate-855 mb-3" />
+              <div className="glass-card p-20 rounded-2xl text-center border border-dashed border-slate-200 dark:border-[#143D32] h-full flex flex-col items-center justify-center text-slate-500">
+                <History className="w-12 h-12 text-slate-400 dark:text-emerald-500/30 mb-3" />
                 <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">Session Details Viewer</h4>
-                <p className="text-[10px] text-slate-550 max-w-xs mx-auto mt-1">Select an interview session in the list on the left to inspect detailed verbal analyses, ideal answers, and download PDFs.</p>
+                <p className="text-[10px] text-slate-500 max-w-xs mx-auto mt-1">Select an interview session in the list on the left to inspect detailed verbal analyses, ideal answers, and download PDFs.</p>
               </div>
             )}
           </div>

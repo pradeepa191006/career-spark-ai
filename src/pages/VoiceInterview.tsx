@@ -274,7 +274,7 @@ export const VoiceInterview: React.FC = () => {
     const render = () => {
       ctx.clearRect(0, 0, width, height);
       ctx.lineWidth = 2.5;
-      ctx.strokeStyle = '#6366f1';
+      ctx.strokeStyle = '#10b981';
       ctx.beginPath();
       
       for (let x = 0; x < width; x++) {
@@ -302,7 +302,7 @@ export const VoiceInterview: React.FC = () => {
 
   return (
     <div className="space-y-6 max-w-4xl mx-auto text-xs leading-normal">
-      <div className="flex justify-between items-center border-b dark:border-slate-800 pb-4">
+      <div className="flex justify-between items-center border-b dark:border-[#143D32] pb-4">
         <button
           onClick={() => navigate('/interview')}
           className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 transition-all font-semibold"
@@ -312,15 +312,15 @@ export const VoiceInterview: React.FC = () => {
         </button>
         <button
           onClick={() => setSoundEnabled(!soundEnabled)}
-          className="p-2 border rounded-xl hover:bg-slate-100 dark:hover:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-500"
+          className="p-2 border rounded-xl hover:bg-slate-100 dark:hover:bg-[#0B2A22] border-slate-200 dark:border-[#143D32] text-slate-500"
         >
-          {soundEnabled ? <Volume2 className="w-4.5 h-4.5 text-indigo-500" /> : <VolumeX className="w-4.5 h-4.5" />}
+          {soundEnabled ? <Volume2 className="w-4.5 h-4.5 text-emerald-500" /> : <VolumeX className="w-4.5 h-4.5" />}
         </button>
       </div>
 
       {sessionState === 'idle' && (
         <div className="glass-card p-12 rounded-2xl text-center space-y-6 max-w-lg mx-auto py-16">
-          <div className="p-4 bg-indigo-500/10 rounded-full text-indigo-500 w-16 h-16 mx-auto flex items-center justify-center">
+          <div className="p-4 bg-emerald-500/10 rounded-full text-emerald-500 w-16 h-16 mx-auto flex items-center justify-center">
             <Mic className="w-8 h-8 animate-pulse" />
           </div>
           <div className="space-y-2">
@@ -331,7 +331,7 @@ export const VoiceInterview: React.FC = () => {
           </div>
           <button
             onClick={handleStartSession}
-            className="px-6 py-3 bg-indigo-650 hover:bg-indigo-755 text-white rounded-xl text-sm font-semibold transition-all shadow-lg flex items-center gap-1.5 mx-auto cursor-pointer"
+            className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-xl text-sm font-semibold transition-all shadow-lg shadow-emerald-500/20 flex items-center gap-1.5 mx-auto cursor-pointer"
           >
             <Play className="w-4 h-4" />
             <span>Launch Audio Mock</span>
@@ -340,12 +340,12 @@ export const VoiceInterview: React.FC = () => {
       )}
 
       {sessionState === 'interviewer_speaking' && (
-        <div className="glass-card p-10 rounded-2xl text-center space-y-6 max-w-lg mx-auto py-16 border dark:border-slate-800">
-          <div className="p-4 bg-indigo-500/10 rounded-full text-indigo-500 w-14 h-14 mx-auto flex items-center justify-center animate-bounce">
+        <div className="glass-card p-10 rounded-2xl text-center space-y-6 max-w-lg mx-auto py-16 border dark:border-[#143D32]">
+          <div className="p-4 bg-emerald-500/10 rounded-full text-emerald-500 w-14 h-14 mx-auto flex items-center justify-center animate-bounce">
             <Volume2 className="w-6 h-6" />
           </div>
           <div className="space-y-2 text-xs">
-            <span className="text-[10px] font-bold text-indigo-500 uppercase tracking-widest">AI Interviewer Speaking</span>
+            <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest">AI Interviewer Speaking</span>
             <p className="font-semibold text-slate-800 dark:text-slate-200 text-sm leading-relaxed mt-2">
               "{questions[currentQuestionIdx]}"
             </p>
@@ -355,7 +355,7 @@ export const VoiceInterview: React.FC = () => {
 
       {sessionState === 'listening' && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-8 glass-card p-6 rounded-2xl space-y-6 border dark:border-slate-800">
+          <div className="lg:col-span-8 glass-card p-6 rounded-2xl space-y-6 border dark:border-[#143D32]">
             <div className="flex justify-between items-center">
               <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -363,16 +363,16 @@ export const VoiceInterview: React.FC = () => {
               </span>
 
               <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                <Clock className="w-4 h-4 text-indigo-500" />
+                <Clock className="w-4 h-4 text-emerald-500" />
                 <span>Timer: {timeLeft}s</span>
               </div>
             </div>
 
-            <canvas ref={canvasRef} width={600} height={100} className="w-full bg-slate-950/40 rounded-xl" />
+            <canvas ref={canvasRef} width={600} height={100} className="w-full bg-[#071C17]/60 rounded-xl" />
 
             <div className="space-y-2 text-xs">
               <span className="text-[10px] font-bold text-slate-400 uppercase">Live Speech Transcript</span>
-              <div className="p-3.5 bg-slate-50 dark:bg-slate-950/60 rounded-xl border border-slate-200 dark:border-slate-800 min-h-[70px] font-mono text-slate-800 dark:text-slate-200">
+              <div className="p-3.5 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32] min-h-[70px] font-mono text-slate-800 dark:text-slate-200">
                 "{transcript || 'Listening for your voice... start speaking now.'}"
               </div>
             </div>
@@ -381,7 +381,7 @@ export const VoiceInterview: React.FC = () => {
               <button
                 type="button"
                 onClick={handleRetakeResponse}
-                className="flex items-center gap-1 px-3 py-1.5 border border-slate-300 dark:border-slate-800 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
+                className="flex items-center gap-1 px-3 py-1.5 border border-slate-300 dark:border-[#143D32] rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>Retake Answer</span>
@@ -389,7 +389,7 @@ export const VoiceInterview: React.FC = () => {
 
               <button
                 onClick={handleNextQuestion}
-                className="flex items-center gap-1.5 bg-indigo-650 hover:bg-indigo-755 text-white font-semibold py-2 px-4.5 rounded-xl text-xs transition-all shadow-md cursor-pointer"
+                className="flex items-center gap-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-2 px-4.5 rounded-xl text-xs transition-all shadow-md shadow-emerald-500/20 cursor-pointer"
               >
                 <span>Submit & Next Question</span>
                 <ArrowRight className="w-4 h-4" />
@@ -398,7 +398,7 @@ export const VoiceInterview: React.FC = () => {
           </div>
 
           <div className="lg:col-span-4 glass-card p-5 rounded-2xl space-y-3 text-xs">
-            <h4 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5"><Keyboard className="w-4 h-4 text-indigo-500" /> Manual Response Edit</h4>
+            <h4 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5"><Keyboard className="w-4 h-4 text-emerald-500" /> Manual Response Edit</h4>
             <textarea
               rows={6}
               value={transcript}
@@ -412,7 +412,7 @@ export const VoiceInterview: React.FC = () => {
 
       {sessionState === 'completed' && feedback && (
         <div className="space-y-6">
-          <div className="glass-card p-6 rounded-2xl flex items-center justify-between border-l-4 border-l-indigo-500">
+          <div className="glass-card p-6 rounded-2xl flex items-center justify-between border-l-4 border-l-emerald-500">
             <div>
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Interview Scorecard</span>
               <p className="text-3xl font-black text-slate-800 dark:text-slate-100 mt-1">{feedback.score}%</p>
@@ -425,13 +425,13 @@ export const VoiceInterview: React.FC = () => {
                   setFeedback(null);
                   setSessionState('idle');
                 }}
-                className="px-4 py-2 border border-slate-300 dark:border-slate-800 rounded-xl text-xs font-semibold"
+                className="px-4 py-2 border border-slate-300 dark:border-[#143D32] hover:bg-slate-100 dark:hover:bg-[#0B2A22] rounded-xl text-xs font-semibold cursor-pointer"
               >
                 Retry Session
               </button>
               <button
                 onClick={() => navigate('/interview')}
-                className="px-4 py-2 bg-indigo-650 text-white rounded-xl text-xs font-semibold shadow-md"
+                className="px-4 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-xl text-xs font-semibold shadow-md shadow-emerald-500/20 cursor-pointer"
               >
                 Return to Dashboard
               </button>
@@ -439,23 +439,23 @@ export const VoiceInterview: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 text-center">
-            <div className="p-3.5 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800">
+            <div className="p-3.5 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
               <p className="text-[9px] uppercase font-bold text-slate-400">Confidence</p>
               <p className="text-lg font-black text-slate-800 dark:text-slate-100 mt-1">{feedback.confidenceScore}%</p>
             </div>
-            <div className="p-3.5 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800">
+            <div className="p-3.5 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
               <p className="text-[9px] uppercase font-bold text-slate-400">Communication</p>
               <p className="text-lg font-black text-slate-800 dark:text-slate-100 mt-1">{feedback.communicationScore}%</p>
             </div>
-            <div className="p-3.5 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800">
+            <div className="p-3.5 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
               <p className="text-[9px] uppercase font-bold text-slate-400">Fluency</p>
               <p className="text-lg font-black text-slate-800 dark:text-slate-100 mt-1">{feedback.fluencyScore}%</p>
             </div>
-            <div className="p-3.5 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800">
+            <div className="p-3.5 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
               <p className="text-[9px] uppercase font-bold text-slate-400">Grammar</p>
               <p className="text-lg font-black text-slate-800 dark:text-slate-100 mt-1">{feedback.grammarScore}%</p>
             </div>
-            <div className="p-3.5 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800">
+            <div className="p-3.5 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
               <p className="text-[9px] uppercase font-bold text-slate-400">Vocabulary</p>
               <p className="text-lg font-black text-slate-800 dark:text-slate-100 mt-1">{feedback.vocabularyScore}%</p>
             </div>

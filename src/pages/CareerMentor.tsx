@@ -352,7 +352,7 @@ export const CareerMentor: React.FC = () => {
       {/* Title Header */}
       <div>
         <h2 className="text-xl font-bold text-slate-850 dark:text-slate-100 flex items-center gap-2">
-          <Sparkles className="w-5 h-5 text-indigo-500" />
+          <Sparkles className="w-5 h-5 text-emerald-500" />
           <span>Personalized AI Career Assistant</span>
         </h2>
         <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -361,11 +361,11 @@ export const CareerMentor: React.FC = () => {
       </div>
 
       {/* Navigation Sub-Tabs */}
-      <div className="flex bg-slate-100 dark:bg-slate-950 p-1 rounded-xl gap-1 text-[11px] border border-slate-200 dark:border-slate-800">
+      <div className="flex bg-slate-100 dark:bg-[#0B2A22]/80 p-1 rounded-xl gap-1 text-[11px] border border-slate-200 dark:border-[#143D32]">
         <button
           onClick={() => setActiveTab('mentor')}
           className={`flex-1 py-2 font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
-            activeTab === 'mentor' ? 'bg-indigo-650 text-white shadow-md' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
+            activeTab === 'mentor' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-500/20' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
           }`}
         >
           <MessageSquare className="w-4 h-4" />
@@ -375,7 +375,7 @@ export const CareerMentor: React.FC = () => {
         <button
           onClick={() => setActiveTab('fit')}
           className={`flex-1 py-2 font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
-            activeTab === 'fit' ? 'bg-indigo-650 text-white shadow-md' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
+            activeTab === 'fit' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-500/20' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -385,7 +385,7 @@ export const CareerMentor: React.FC = () => {
         <button
           onClick={() => setActiveTab('plan')}
           className={`flex-1 py-2 font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
-            activeTab === 'plan' ? 'bg-indigo-650 text-white shadow-md' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
+            activeTab === 'plan' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-500/20' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
           }`}
         >
           <Calendar className="w-4 h-4" />
@@ -395,7 +395,7 @@ export const CareerMentor: React.FC = () => {
         <button
           onClick={() => setActiveTab('projects')}
           className={`flex-1 py-2 font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
-            activeTab === 'projects' ? 'bg-indigo-650 text-white shadow-md' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
+            activeTab === 'projects' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-500/20' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
           }`}
         >
           <Code className="w-4 h-4" />
@@ -408,8 +408,8 @@ export const CareerMentor: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Quick Action Queries Sidebar */}
           <div className="lg:col-span-4 glass-card p-5 rounded-2xl space-y-4">
-            <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-2 flex items-center gap-1.5">
-              <UserCheck className="w-4 h-4 text-indigo-500" />
+            <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-[#143D32] pb-2 flex items-center gap-1.5">
+              <UserCheck className="w-4 h-4 text-emerald-500" />
               <span>Personalized Quick Actions</span>
             </h4>
             <div className="space-y-2 flex flex-col">
@@ -417,9 +417,9 @@ export const CareerMentor: React.FC = () => {
                 <button 
                   key={i}
                   onClick={() => handleSendChat(act.query)}
-                  className="w-full text-left p-2.5 bg-slate-50 dark:bg-slate-950/40 hover:bg-indigo-500/10 border border-slate-200 dark:border-slate-800 rounded-xl transition-all font-semibold text-slate-700 dark:text-slate-300 text-[11px] flex items-center gap-2"
+                  className="w-full text-left p-2.5 bg-slate-50 dark:bg-[#071C17]/60 hover:bg-emerald-500/10 hover:border-emerald-500/30 border border-slate-200 dark:border-[#143D32] rounded-xl transition-all font-semibold text-slate-700 dark:text-slate-300 text-[11px] flex items-center gap-2"
                 >
-                  <span className="text-indigo-500 font-bold">›</span>
+                  <span className="text-emerald-500 font-bold">›</span>
                   <span>{act.label}</span>
                 </button>
               ))}
@@ -434,15 +434,15 @@ export const CareerMentor: React.FC = () => {
                   key={i} 
                   className={`p-4 rounded-2xl max-w-[88%] ${
                     msg.sender === 'user' 
-                      ? 'bg-indigo-650 text-white ml-auto shadow-md' 
-                      : 'bg-slate-50 dark:bg-slate-950/60 text-slate-800 dark:text-slate-200 mr-auto border border-slate-200 dark:border-slate-800 shadow-sm'
+                      ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white ml-auto shadow-md shadow-emerald-500/10' 
+                      : 'bg-white dark:bg-[#0B2A22]/70 text-slate-800 dark:text-slate-200 mr-auto border border-slate-200 dark:border-[#143D32] shadow-sm'
                   }`}
                 >
                   <p className="whitespace-pre-line leading-relaxed">{msg.text}</p>
                 </div>
               ))}
               {chatLoading && (
-                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950/60 text-slate-500 mr-auto border border-slate-200 dark:border-slate-800 animate-pulse">
+                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-[#0B2A22]/50 text-slate-500 mr-auto border border-slate-200 dark:border-[#143D32] animate-pulse">
                   Analyzing your profile & composing specific response...
                 </div>
               )}
@@ -451,7 +451,7 @@ export const CareerMentor: React.FC = () => {
             {/* Input Form */}
             <form 
               onSubmit={(e) => { e.preventDefault(); handleSendChat(chatInput); }}
-              className="mt-6 flex gap-3 border-t border-slate-200 dark:border-slate-800 pt-4"
+              className="mt-6 flex gap-3 border-t border-slate-200 dark:border-[#143D32] pt-4"
             >
               <input
                 type="text"
@@ -463,7 +463,7 @@ export const CareerMentor: React.FC = () => {
               <button
                 type="submit"
                 disabled={chatLoading}
-                className="bg-indigo-650 hover:bg-indigo-755 text-white p-3 rounded-xl transition-all shadow-md shrink-0 cursor-pointer"
+                className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white p-3 rounded-xl transition-all shadow-md shadow-emerald-500/20 shrink-0 cursor-pointer"
               >
                 {chatLoading ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
               </button>
@@ -476,7 +476,7 @@ export const CareerMentor: React.FC = () => {
       {activeTab === 'fit' && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-5 glass-card p-6 rounded-2xl space-y-6">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-3">Target Fit Parameters</h3>
+            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-[#143D32] pb-3">Target Fit Parameters</h3>
 
             <div>
               <label className="block text-[10px] font-semibold text-slate-400 uppercase mb-2">Target Job Title</label>
@@ -502,7 +502,7 @@ export const CareerMentor: React.FC = () => {
             <button
               onClick={handleAnalyzeJobFit}
               disabled={fitLoading}
-              className="w-full flex items-center justify-center gap-2 bg-indigo-650 hover:bg-indigo-755 text-white font-semibold py-3 rounded-xl text-xs transition-all shadow-lg cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-3 rounded-xl text-xs transition-all shadow-lg shadow-emerald-500/20 cursor-pointer"
             >
               {fitLoading ? (
                 <>
@@ -521,18 +521,18 @@ export const CareerMentor: React.FC = () => {
           <div ref={fitResultsRef} className="lg:col-span-7">
             {fitResult ? (
               <div className="space-y-6">
-                <div className="glass-card p-6 rounded-2xl flex items-center justify-between border-l-4 border-l-indigo-500">
+                <div className="glass-card p-6 rounded-2xl flex items-center justify-between border-l-4 border-l-emerald-500">
                   <div>
                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Suitability Rating</span>
                     <p className="text-xl font-bold text-slate-800 dark:text-slate-100 mt-1">{fitResult.status}</p>
                   </div>
-                  <span className="text-2xl font-black text-indigo-500 bg-indigo-500/10 px-4 py-2 rounded-xl">
+                  <span className="text-2xl font-black text-emerald-500 bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/30 px-4 py-2 rounded-xl">
                     {fitResult.score}%
                   </span>
                 </div>
 
                 <div className="glass-card p-6 rounded-2xl space-y-4">
-                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-2">Profile Alignment Breakdown</h4>
+                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-[#143D32] pb-2">Profile Alignment Breakdown</h4>
                   <ul className="space-y-3 text-xs text-slate-700 dark:text-slate-300">
                     {fitResult.explanations.map((exp: string, i: number) => (
                       <li key={i} className="flex gap-2 items-start">
@@ -544,8 +544,8 @@ export const CareerMentor: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <div className="glass-card p-16 rounded-2xl text-center border border-dashed border-slate-300 dark:border-slate-800 h-full flex flex-col items-center justify-center text-slate-500">
-                <BookmarkCheck className="w-12 h-12 text-slate-400 dark:text-slate-700 mb-3" />
+              <div className="glass-card p-16 rounded-2xl text-center border border-dashed border-slate-300 dark:border-[#143D32] h-full flex flex-col items-center justify-center text-slate-500">
+                <BookmarkCheck className="w-12 h-12 text-slate-400 dark:text-emerald-500/30 mb-3" />
                 <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">Fit Evaluator Ready</h4>
                 <p className="text-xs text-slate-500 max-w-xs mx-auto mt-1">Configure target role on the left and run analysis to evaluate profile alignment.</p>
               </div>
@@ -557,7 +557,7 @@ export const CareerMentor: React.FC = () => {
       {/* TAB 3: 30-Day Plan */}
       {activeTab === 'plan' && (
         <div ref={planResultsRef} className="glass-card p-6 rounded-2xl space-y-6 max-w-3xl mx-auto">
-          <div className="flex justify-between items-center border-b dark:border-slate-800 pb-3">
+          <div className="flex justify-between items-center border-b dark:border-[#143D32] pb-3">
             <div>
               <h3 className="font-bold text-slate-800 dark:text-slate-100 text-sm">Personalized 30-Day Placement Plan</h3>
               <p className="text-[10px] text-slate-500 mt-0.5">Structured weekly syllabus tailored to your CGPA and skill profile.</p>
@@ -565,7 +565,7 @@ export const CareerMentor: React.FC = () => {
             <button
               onClick={handleGenerate30DayPlan}
               disabled={planLoading}
-              className="flex items-center gap-1.5 bg-indigo-650 hover:bg-indigo-755 text-white font-semibold py-2 px-4 rounded-xl transition-all shadow-md cursor-pointer"
+              className="flex items-center gap-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-2 px-4 rounded-xl transition-all shadow-md shadow-emerald-500/20 cursor-pointer"
             >
               <RefreshCw className={`w-4 h-4 ${planLoading ? 'animate-spin' : ''}`} />
               <span>{planTasks.length ? 'Re-generate Plan' : 'Generate 30-Day Plan'}</span>
@@ -581,26 +581,26 @@ export const CareerMentor: React.FC = () => {
                   className={`p-4 rounded-xl border transition-all cursor-pointer flex gap-3.5 items-start ${
                     t.completed 
                       ? 'border-emerald-500/30 bg-emerald-500/5 text-slate-400 line-through' 
-                      : 'border-slate-200 dark:border-slate-800 hover:border-indigo-500 bg-slate-50 dark:bg-slate-950/40 text-slate-800 dark:text-slate-200'
+                      : 'border-slate-200 dark:border-[#143D32] hover:border-emerald-500 bg-slate-50 dark:bg-[#071C17]/60 text-slate-800 dark:text-slate-200'
                   }`}
                 >
-                  <div className="p-1 rounded bg-white dark:bg-slate-900 shrink-0 mt-0.5 border border-slate-200 dark:border-slate-800">
+                  <div className="p-1 rounded bg-white dark:bg-[#0B2A22] shrink-0 mt-0.5 border border-slate-200 dark:border-[#143D32]">
                     <CheckSquare className={`w-4 h-4 ${t.completed ? 'text-emerald-500' : 'text-slate-400'}`} />
                   </div>
                   <div className="space-y-0.5">
-                    <span className="text-[9px] font-extrabold uppercase text-indigo-500">{t.week} • {t.day}</span>
+                    <span className="text-[9px] font-extrabold uppercase text-emerald-600 dark:text-emerald-400">{t.week} • {t.day}</span>
                     <p className="leading-relaxed mt-1 text-xs">{t.task}</p>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <div className="p-12 text-center border border-dashed border-slate-300 dark:border-slate-800 rounded-xl space-y-3">
-              <Calendar className="w-10 h-10 text-slate-400 dark:text-slate-700 mx-auto" />
+            <div className="p-12 text-center border border-dashed border-slate-300 dark:border-[#143D32] rounded-xl space-y-3">
+              <Calendar className="w-10 h-10 text-slate-400 dark:text-emerald-500/30 mx-auto" />
               <p className="text-slate-600 dark:text-slate-300 font-semibold">No active 30-day curriculum found.</p>
               <button 
                 onClick={handleGenerate30DayPlan}
-                className="bg-indigo-650 hover:bg-indigo-755 text-white py-2.5 px-5 rounded-xl font-bold transition-all shadow-md cursor-pointer"
+                className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white py-2.5 px-5 rounded-xl font-bold transition-all shadow-md shadow-emerald-500/20 cursor-pointer"
               >
                 Compile 30-Day Plan Now
               </button>
@@ -613,7 +613,7 @@ export const CareerMentor: React.FC = () => {
       {activeTab === 'projects' && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-5 glass-card p-6 rounded-2xl space-y-6">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-3">Project Specs</h3>
+            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-[#143D32] pb-3">Project Specs</h3>
 
             <div className="space-y-4">
               <div>
@@ -653,7 +653,7 @@ export const CareerMentor: React.FC = () => {
             <button
               onClick={handleReviewProject}
               disabled={projectLoading}
-              className="w-full flex items-center justify-center gap-2 bg-indigo-650 hover:bg-indigo-755 text-white font-semibold py-3 rounded-xl text-xs transition-all shadow-lg cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-3 rounded-xl text-xs transition-all shadow-lg shadow-emerald-500/20 cursor-pointer"
             >
               {projectLoading ? (
                 <>
@@ -673,17 +673,17 @@ export const CareerMentor: React.FC = () => {
             {projectReview ? (
               <div className="space-y-6">
                 <div className="glass-card p-6 rounded-2xl space-y-4">
-                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-2">Analysis Ratings</h4>
+                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-[#143D32] pb-2">Analysis Ratings</h4>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center text-xs">
-                    <div className="p-3 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800">
+                    <div className="p-3 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
                       <p className="text-[9px] uppercase font-bold text-slate-400">Tech Stack</p>
                       <p className="text-lg font-black text-slate-800 dark:text-slate-100 mt-1">{projectReview.techStackScore}%</p>
                     </div>
-                    <div className="p-3 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800">
+                    <div className="p-3 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
                       <p className="text-[9px] uppercase font-bold text-slate-400">Writing Quality</p>
                       <p className="text-lg font-black text-slate-800 dark:text-slate-100 mt-1">{projectReview.writingScore}%</p>
                     </div>
-                    <div className="p-3 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800">
+                    <div className="p-3 bg-slate-50 dark:bg-[#071C17]/60 rounded-xl border border-slate-200 dark:border-[#143D32]">
                       <p className="text-[9px] uppercase font-bold text-slate-400">Innovation</p>
                       <p className="text-lg font-black text-slate-800 dark:text-slate-100 mt-1">{projectReview.innovationScore}%</p>
                     </div>
@@ -691,11 +691,11 @@ export const CareerMentor: React.FC = () => {
                 </div>
 
                 <div className="glass-card p-6 rounded-2xl space-y-3">
-                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-slate-800 pb-2">Improvement Suggestions</h4>
+                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b dark:border-[#143D32] pb-2">Improvement Suggestions</h4>
                   <ul className="space-y-2 text-xs text-slate-700 dark:text-slate-300">
                     {projectReview.suggestions.map((s, i) => (
                       <li key={i} className="flex gap-2 items-start">
-                        <Check className="w-4 h-4 text-indigo-500 shrink-0 mt-0.5" />
+                        <Check className="w-4 h-4 text-teal-500 shrink-0 mt-0.5" />
                         <span>{s}</span>
                       </li>
                     ))}
@@ -703,8 +703,8 @@ export const CareerMentor: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <div className="glass-card p-16 rounded-2xl text-center border border-dashed border-slate-300 dark:border-slate-800 h-full flex flex-col items-center justify-center text-slate-500">
-                <Code className="w-12 h-12 text-slate-400 dark:text-slate-700 mb-3" />
+              <div className="glass-card p-16 rounded-2xl text-center border border-dashed border-slate-300 dark:border-[#143D32] h-full flex flex-col items-center justify-center text-slate-500">
+                <Code className="w-12 h-12 text-slate-400 dark:text-emerald-500/30 mb-3" />
                 <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">Project Auditor Panel</h4>
                 <p className="text-xs text-slate-500 max-w-xs mx-auto mt-1">Configure project specifications on the left to obtain recruiter rating metrics.</p>
               </div>
